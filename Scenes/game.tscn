@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://cedftdbpphn"]
+[gd_scene load_steps=3 format=3 uid="uid://cedftdbpphn"]
+
+[ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="1_xlduq"]
+[ext_resource type="PackedScene" uid="uid://bgcd3psfd3bsf" path="res://Scenes/hut.tscn" id="2_x48bx"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_xlduq")]
+position = Vector2(-48, -24)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -64)
+zoom = Vector2(2, 2)
+
+[node name="Hut" parent="." instance=ExtResource("2_x48bx")]
+position = Vector2(-184, 0)
