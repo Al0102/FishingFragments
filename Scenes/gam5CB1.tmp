@@ -1,16 +1,14 @@
-[gd_scene load_steps=15 format=4 uid="uid://cedftdbpphn"]
+[gd_scene load_steps=14 format=4 uid="uid://cedftdbpphn"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_s1xxa"]
 [ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="1_xlduq"]
 [ext_resource type="PackedScene" uid="uid://cwfk75spsv157" path="res://Scenes/Levels/inside.tscn" id="3_1y6ot"]
 [ext_resource type="Script" path="res://Scripts/Levels/outside.gd" id="3_hsvns"]
 [ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Utility/interact_area.tscn" id="3_k60jh"]
+[ext_resource type="Texture2D" uid="uid://dqbxnk0urxqtv" path="res://Images/Keys.png" id="4_eu3vm"]
 [ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Tilesets/Boat.tres" id="4_ex1hm"]
 [ext_resource type="Texture2D" uid="uid://d1dtrewx4ephi" path="res://Images/Ground tile.png" id="5_2sk3e"]
-[ext_resource type="Script" path="res://Scripts/Interactables/interacting_boat.gd" id="6_hbabu"]
-[ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="7_qpiww"]
-[ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="8_0o6nq"]
-[ext_resource type="PackedScene" uid="uid://h5bny70g3ojw" path="res://Scenes/Interactables/portal_destination.tscn" id="9_eu83q"]
+[ext_resource type="Script" path="res://Scripts/Interactables/door_inside.gd" id="6_hbabu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23qst"]
 texture = ExtResource("5_2sk3e")
@@ -28,15 +26,21 @@ sources/0 = SubResource("TileSetAtlasSource_23qst")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tpxq"]
 size = Vector2(10, 30)
 
+[sub_resource type="GDScript" id="GDScript_4dvmr"]
+script/source = "extends Level
+
+func reload():
+	pass
+"
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("level_Outside", "level_Inside")]
 script = ExtResource("1_s1xxa")
 level_Outside = NodePath("Outside")
 level_Inside = NodePath("Inside")
 
-[node name="Outside" type="Node2D" parent="." node_paths=PackedStringArray("interactables")]
-position = Vector2(0, 4)
+[node name="Outside" type="Node2D" parent="."]
+position = Vector2(0, 10)
 script = ExtResource("3_hsvns")
-interactables = NodePath("interactables")
 
 [node name="Floor" type="TileMapLayer" parent="Outside"]
 position = Vector2(0, 10)
@@ -55,24 +59,22 @@ position = Vector2(0, 10)
 tile_map_data = PackedByteArray("AAD4/wAAAAAAAAQAAAD5/wAAAAABAAQAAAAFAP//AAACAAMAAAAFAAAAAAACAAQAAAAGAP//AAADAAMAAAAGAAAAAAACAAQAAAAHAP//AAAEAAMAAAAHAAAAAAAEAAQAAAD5////AAABAAMAAAD6////AAACAAMAAAD6/wAAAAACAAQAAAD7////AAADAAMAAAD7/wAAAAACAAQAAAD8////AAACAAMAAAD8/wAAAAACAAQAAAD9////AAACAAMAAAD9/wAAAAACAAQAAAD+////AAACAAMAAAD+/wAAAAACAAQAAAD/////AAACAAMAAAD//wAAAAACAAQAAAAAAP//AAADAAMAAAAAAAAAAAACAAQAAAABAP//AAACAAMAAAABAAAAAAACAAQAAAACAP//AAACAAMAAAACAAAAAAACAAQAAAADAP//AAACAAMAAAADAAAAAAACAAQAAAAEAP//AAADAAMAAAAEAAAAAAACAAQAAAD4/wIAAAAAAAYAAAD5/wIAAAABAAYAAAD6/wIAAAABAAYAAAD7/wIAAAABAAYAAAD8/wIAAAABAAYAAAD9/wIAAAABAAYAAAD+/wIAAAABAAYAAAD//wIAAAABAAYAAAAAAAIAAAABAAYAAAABAAIAAAABAAYAAAACAAIAAAABAAYAAAADAAIAAAABAAYAAAAEAAIAAAABAAYAAAAFAAIAAAABAAYAAAAGAAIAAAADAAYAAAAHAAIAAAAEAAYAAAD4/wMAAAAAAAcAAAD5/wMAAAABAAcAAAD6/wMAAAABAAcAAAD7/wMAAAABAAcAAAD8/wMAAAABAAcAAAD9/wMAAAABAAcAAAD+/wMAAAABAAcAAAD//wMAAAABAAcAAAAAAAMAAAABAAcAAAABAAMAAAABAAcAAAACAAMAAAABAAcAAAADAAMAAAABAAcAAAAEAAMAAAABAAcAAAAFAAMAAAACAAcAAAAGAAMAAAADAAcAAAAHAAMAAAAEAAcAAAD6/wEAAAABAAUAAAD7/wEAAAABAAUAAAD8/wEAAAACAAUAAAD9/wEAAAACAAUAAAD+/wEAAAABAAUAAAD//wEAAAABAAUAAAAAAAEAAAACAAUAAAABAAEAAAABAAUAAAACAAEAAAABAAUAAAADAAEAAAABAAUAAAAEAAEAAAABAAUAAAAFAAEAAAABAAUAAAAGAAEAAAADAAUAAAD5/wEAAAACAAQAAAAHAAEAAAAEAAUAAAD4/wEAAAAAAAUAAAA=")
 tile_set = ExtResource("4_ex1hm")
 
-[node name="interactables" type="Node2D" parent="Outside"]
+[node name="door_inside" parent="Outside" node_paths=PackedStringArray("label") instance=ExtResource("3_k60jh")]
 position = Vector2(-65.4249, -21.3886)
 script = ExtResource("6_hbabu")
-
-[node name="door_inside" parent="Outside/interactables" node_paths=PackedStringArray("destination", "label") instance=ExtResource("3_k60jh")]
-script = ExtResource("7_qpiww")
-destination = NodePath("PortalDestination")
 label = NodePath("popupLabel")
 
-[node name="CollisionShape2D" parent="Outside/interactables/door_inside/interactArea2D" index="0"]
+[node name="CollisionShape2D" parent="Outside/door_inside/interactArea2D" index="0"]
 position = Vector2(17.4249, 7.3886)
 shape = SubResource("RectangleShape2D_7tpxq")
 
-[node name="popupLabel" parent="Outside/interactables/door_inside" instance=ExtResource("8_0o6nq")]
+[node name="popupLabel" type="Sprite2D" parent="Outside/door_inside"]
+z_index = 100
 position = Vector2(21.4249, -4.6114)
-
-[node name="PortalDestination" parent="Outside/interactables/door_inside" instance=ExtResource("9_eu83q")]
-position = Vector2(-126.575, 17.3886)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("4_eu3vm")
+region_enabled = true
+region_rect = Rect2(323, 34, 16, 16)
 
 [node name="Player" parent="." instance=ExtResource("1_xlduq")]
 z_index = 2
@@ -81,33 +83,9 @@ z_index = 2
 position = Vector2(16, -8)
 zoom = Vector2(8, 8)
 
-[node name="Inside" parent="." node_paths=PackedStringArray("interactables") instance=ExtResource("3_1y6ot")]
-position = Vector2(-200, 14)
-script = ExtResource("3_hsvns")
-interactables = NodePath("interactables")
+[node name="Inside" parent="." instance=ExtResource("3_1y6ot")]
+position = Vector2(-10, 16)
+script = SubResource("GDScript_4dvmr")
 
-[node name="interactables" parent="Inside" index="2"]
-script = ExtResource("6_hbabu")
-
-[node name="door_outside" parent="Inside/interactables" index="0" node_paths=PackedStringArray("destination")]
-script = ExtResource("7_qpiww")
-destination = NodePath("PortalDestination")
-
-[node name="PortalDestination" parent="Inside/interactables/door_outside" index="2" instance=ExtResource("9_eu83q")]
-position = Vector2(152, -14)
-
-[node name="door_bedroom" parent="Inside/interactables" index="1"]
-script = ExtResource("7_qpiww")
-
-[node name="door_kitchen" parent="Inside/interactables" index="2"]
-script = ExtResource("7_qpiww")
-
-[node name="door_storage" parent="Inside/interactables" index="3"]
-script = ExtResource("7_qpiww")
-
-[editable path="Outside/interactables/door_inside"]
+[editable path="Outside/door_inside"]
 [editable path="Inside"]
-[editable path="Inside/interactables/door_outside"]
-[editable path="Inside/interactables/door_bedroom"]
-[editable path="Inside/interactables/door_kitchen"]
-[editable path="Inside/interactables/door_storage"]

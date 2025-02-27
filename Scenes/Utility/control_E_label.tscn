@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://culxx5pu21pj6"]
+
+[ext_resource type="Texture2D" uid="uid://dqbxnk0urxqtv" path="res://Images/Keys.png" id="1_oqqu3"]
+
+[node name="popupLabel" type="Sprite2D"]
+z_index = 100
+position = Vector2(16, -36)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("1_oqqu3")
+region_enabled = true
+region_rect = Rect2(323, 34, 16, 16)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cedftdbpphn"]
+
+[ext_resource type="PackedScene" uid="uid://bbo1317tc3udw" path="res://Scenes/Levels/outside.tscn" id="1_7rrue"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_s1xxa"]
+[ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="1_xlduq"]
+[ext_resource type="PackedScene" uid="uid://cwfk75spsv157" path="res://Scenes/Levels/inside.tscn" id="3_1y6ot"]
+[ext_resource type="Script" path="res://Scripts/Levels/outside.gd" id="3_hsvns"]
+
+[sub_resource type="GDScript" id="GDScript_4dvmr"]
+script/source = "extends Level
+
+func reload():
+	pass
+"
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("level_Outside", "level_Inside")]
+script = ExtResource("1_s1xxa")
+level_Outside = NodePath("Outside")
+level_Inside = NodePath("Inside")
+
+[node name="Outside" parent="." instance=ExtResource("1_7rrue")]
+position = Vector2(0, 10)
+script = ExtResource("3_hsvns")
+
+[node name="Floor" parent="Outside" index="0"]
+position = Vector2(0, 10)
+
+[node name="Boat Background" parent="Outside" index="1"]
+position = Vector2(0, 10)
+
+[node name="Boat Foreground" parent="Outside" index="2"]
+position = Vector2(0, 10)
+
+[node name="Player" parent="." instance=ExtResource("1_xlduq")]
+z_index = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, -8)
+zoom = Vector2(8, 8)
+
+[node name="Inside" parent="." instance=ExtResource("3_1y6ot")]
+script = SubResource("GDScript_4dvmr")
+
+[connection signal="can_interact_with_me" from="Outside/interactArea" to="Outside" method="_can_interact_door_inside"]
+
+[editable path="Outside"]
+[editable path="Outside/interactArea"]
+[editable path="Inside"]

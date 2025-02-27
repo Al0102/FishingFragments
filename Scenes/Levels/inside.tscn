@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=4 uid="uid://cwfk75spsv157"]
+
+[ext_resource type="Script" path="res://Scripts/Utility/Level.gd" id="1_dn1py"]
+[ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Tilesets/Boat.tres" id="2_dbm2w"]
+[ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Utility/interact_area.tscn" id="3_2qex5"]
+[ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="4_d11k1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1vmr"]
+size = Vector2(15.7738, 26)
+
+[node name="Inside" type="Node2D"]
+script = ExtResource("1_dn1py")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADz//z/AAAHAAAAAAD0//z/AAAHAAAAAAD+//3/AAAJAAAAAAD6//3/AAAJAAAAAAD8//3/AAAHAAAAAAD5//3/AAAHAAAAAADz//7/AAAHAAAAAAD0//7/AAAHAAAAAAD6//z/AAAJAAAAAAD2//3/AAAJAAAAAAD3//7/AAAJAAAAAAD5//7/AAAJAAAAAAD6//7/AAAHAAEAAAD7//7/AAAGAAEAAAD7//3/AAAJAAAAAAD9//3/AAAJAAAAAAD9//7/AAAJAAAAAAD8//7/AAAJAAAAAAD3//3/AAAJAAAAAAD4//3/AAAHAAAAAAD4//7/AAAJAAAAAAD+//z/AAAJAAAAAAD9//z/AAAJAAAAAAD8//z/AAAHAAAAAAD7//z/AAAJAAAAAAD2//7/AAAJAAAAAAD///7/AAAHAAAAAAAAAP7/AAAHAAAAAAABAP7/AAAJAAAAAAABAP3/AAAJAAAAAAABAPz/AAAJAAAAAAAAAPz/AAAHAAAAAAD///z/AAAJAAAAAAD5//z/AAAJAAAAAAD4//z/AAAJAAAAAAD3//z/AAAJAAAAAAD2//z/AAAJAAAAAAD1//z/AAAJAAAAAADz//3/AAAHAAAAAAD1//7/AAAHAAAAAAD///3/AAAJAAAAAAAAAP3/AAAJAAAAAAD1//3/AAAJAAAAAAD0//3/AAAJAAAAAADz////AAAGAAIAAAD0////AAAGAAIAAAD1////AAAGAAIAAAD2////AAAHAAIAAAD3////AAAIAAIAAAD4////AAAGAAIAAAD5////AAAGAAIAAAD6////AAAGAAIAAAD7////AAAGAAIAAAD8////AAAGAAIAAAD9////AAAGAAIAAAD+////AAAGAAIAAAD/////AAAGAAIAAAAAAP//AAAGAAIAAAABAP//AAAGAAIAAAD+//7/AAAIAAEAAAA=")
+tile_set = ExtResource("2_dbm2w")
+
+[node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAD+/wAAAAABAAIAAAD9/wAAAAABAAIAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD+/wEAAAABAAEAAAD9/wEAAAABAAEAAAD9/wIAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAEAAAACAAAAAAACAAIAAAACAP//AAACAAEAAAACAP7/AAACAAEAAAACAP3/AAACAAEAAAACAPz/AAACAAAAAADy//z/AAAAAAAAAADy//3/AAAAAAEAAADy//7/AAAAAAEAAADy////AAAAAAEAAADy/wAAAAAAAAIAAADz/wAAAAABAAIAAAD0/wAAAAABAAIAAAD1/wAAAAABAAIAAAD2/wAAAAABAAIAAAD3/wAAAAABAAIAAAD4/wAAAAABAAIAAAD5/wAAAAABAAIAAAD6/wAAAAABAAIAAAD7/wAAAAABAAIAAAD8/wAAAAABAAIAAAD8/wIAAAABAAEAAAD8/wEAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD6/wIAAAABAAEAAAD5/wIAAAABAAEAAAD4/wIAAAABAAEAAAD3/wIAAAABAAEAAAD2/wIAAAABAAEAAAD1/wIAAAABAAEAAAD0/wIAAAABAAEAAADw/wEAAAABAAEAAADw/wIAAAABAAEAAADx/wEAAAABAAEAAADx/wIAAAABAAEAAADy/wEAAAABAAEAAADy/wIAAAABAAEAAADz/wEAAAABAAEAAADz/wIAAAABAAEAAAD0/wEAAAABAAEAAAD1/wEAAAABAAEAAAD2/wEAAAABAAEAAAD3/wEAAAABAAEAAAD4/wEAAAABAAEAAAD5/wEAAAABAAEAAAD6/wEAAAABAAEAAADw//z/AAABAAEAAADw//3/AAABAAEAAADw//7/AAABAAEAAADw////AAABAAEAAADw/wAAAAABAAEAAADx//z/AAABAAEAAADx//3/AAABAAEAAADx//7/AAABAAEAAADx////AAABAAEAAADx/wAAAAABAAEAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAAAP7/AAAJAAIAAAAAAP//AAAJAAMAAAABAP7/AAAKAAIAAAABAP//AAAKAAMAAAD8//7/AAAJAAYAAAD8////AAAJAAcAAAD9//7/AAAKAAYAAAD9////AAAKAAcAAAD4//7/AAAJAAYAAAD4////AAAJAAcAAAD5//7/AAAKAAYAAAD5////AAAKAAcAAAD0//7/AAAJAAQAAAD0////AAAJAAUAAAD1//7/AAAKAAQAAAD1////AAAKAAUAAADw//r/AAABAAEAAADw//v/AAABAAEAAADx//r/AAABAAEAAADx//v/AAABAAEAAADy//r/AAABAAEAAADy//v/AAABAAEAAADz//r/AAABAAEAAADz//v/AAABAAEAAAD0//r/AAABAAEAAAD0//v/AAABAAEAAAD1//r/AAABAAEAAAD1//v/AAABAAEAAAD2//r/AAABAAEAAAD2//v/AAABAAEAAAD3//r/AAABAAEAAAD3//v/AAABAAEAAAD4//r/AAABAAEAAAD4//v/AAABAAEAAAD5//r/AAABAAEAAAD5//v/AAABAAEAAAD6//r/AAABAAEAAAD6//v/AAABAAEAAAD7//r/AAABAAEAAAD7//v/AAABAAEAAAD8//r/AAABAAEAAAD8//v/AAABAAEAAAD9//r/AAABAAEAAAD9//v/AAABAAEAAAD+//r/AAABAAEAAAD+//v/AAABAAEAAAD///r/AAABAAEAAAD///v/AAABAAEAAAAAAPr/AAABAAEAAAAAAPv/AAABAAEAAAABAPr/AAABAAEAAAABAPv/AAABAAEAAAACAPr/AAABAAEAAAACAPv/AAABAAEAAAADAPr/AAABAAEAAAADAPv/AAABAAEAAAAEAPr/AAABAAEAAAAEAPv/AAABAAEAAADz//z/AAABAAAAAAD0//z/AAABAAAAAAD1//z/AAABAAAAAAD2//z/AAABAAAAAAD3//z/AAABAAAAAAD4//z/AAABAAAAAAD5//z/AAABAAAAAAD6//z/AAABAAAAAAD7//z/AAABAAAAAAD8//z/AAABAAAAAAD9//z/AAABAAAAAAD+//z/AAABAAAAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAD3//3/AAAIAAQAAAD///3/AAAIAAQAAAD2//7/AAAKAAAAAAD7//7/AAAKAAEAAADz//7/AAAGAAEAAAD3//7/AAAGAAEAAAD///7/AAAGAAEAAAA=")
+tile_set = ExtResource("2_dbm2w")
+
+[node name="interactables" type="Node2D" parent="."]
+
+[node name="door_outside" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+label = NodePath("popupLabel")
+
+[node name="CollisionShape2D" parent="interactables/door_outside/interactArea2D" index="0"]
+position = Vector2(16.1131, -13)
+shape = SubResource("RectangleShape2D_o1vmr")
+
+[node name="popupLabel" parent="interactables/door_outside" instance=ExtResource("4_d11k1")]
+
+[node name="door_bedroom" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+label = NodePath("popupLabel")
+
+[node name="interactArea2D" parent="interactables/door_bedroom" index="0"]
+position = Vector2(-128, 0)
+
+[node name="CollisionShape2D" parent="interactables/door_bedroom/interactArea2D" index="0"]
+position = Vector2(16.1131, -13)
+shape = SubResource("RectangleShape2D_o1vmr")
+
+[node name="popupLabel" parent="interactables/door_bedroom" instance=ExtResource("4_d11k1")]
+position = Vector2(-112, -36)
+
+[node name="door_kitchen" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+label = NodePath("popupLabel")
+
+[node name="interactArea2D" parent="interactables/door_kitchen" index="0"]
+position = Vector2(-192, 0)
+
+[node name="CollisionShape2D" parent="interactables/door_kitchen/interactArea2D" index="0"]
+position = Vector2(16.1131, -13)
+shape = SubResource("RectangleShape2D_o1vmr")
+
+[node name="popupLabel" parent="interactables/door_kitchen" instance=ExtResource("4_d11k1")]
+position = Vector2(-176, -36)
+
+[node name="door_storage" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+label = NodePath("popupLabel")
+
+[node name="interactArea2D" parent="interactables/door_storage" index="0"]
+position = Vector2(-128, 0)
+
+[node name="CollisionShape2D" parent="interactables/door_storage/interactArea2D" index="0"]
+position = Vector2(80, -13)
+shape = SubResource("RectangleShape2D_o1vmr")
+
+[node name="popupLabel" parent="interactables/door_storage" instance=ExtResource("4_d11k1")]
+position = Vector2(-48, -36)
+
+[editable path="interactables/door_outside"]
+[editable path="interactables/door_bedroom"]
+[editable path="interactables/door_kitchen"]
+[editable path="interactables/door_storage"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h5bny70g3ojw"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/portal_destination.gd" id="1_55agm"]
+
+[node name="PortalDestination" type="Node2D"]
+script = ExtResource("1_55agm")
