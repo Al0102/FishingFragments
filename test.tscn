@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=4 uid="uid://kdiqu3j2l1gw"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_bjmw5"]
+[ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="2_0wg6a"]
+[ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Tilesets/Boat.tres" id="3_qsloa"]
+[ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="4_npfl7"]
+[ext_resource type="Texture2D" uid="uid://0u7rflvdpu7g" path="res://Images/temp cloud.png" id="5_m7bfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgwvr"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_bjmw5")
+player = NodePath("Player")
+
+[node name="Player" parent="." instance=ExtResource("2_0wg6a")]
+position = Vector2(-64, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(64, 0)
+zoom = Vector2(8, 8)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAIAAEAAAABAAIAAAAHAAEAAAABAAIAAAAGAAEAAAABAAIAAAAFAAEAAAABAAIAAAAEAAEAAAABAAIAAAADAAEAAAABAAIAAAACAAEAAAABAAIAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAD//wEAAAABAAIAAAD+/wEAAAABAAIAAAD9/wEAAAABAAIAAAD8/wEAAAABAAIAAAD7/wEAAAABAAIAAAD6/wEAAAABAAIAAAD5/wEAAAABAAIAAAA=")
+tile_set = ExtResource("3_qsloa")
+
+[node name="interactArea" parent="." node_paths=PackedStringArray("label") instance=ExtResource("4_npfl7")]
+label = NodePath("label")
+
+[node name="CollisionShape2D" parent="interactArea/interactArea2D" index="0"]
+shape = SubResource("RectangleShape2D_bgwvr")
+
+[node name="label" type="Sprite2D" parent="interactArea"]
+position = Vector2(-1.90735e-06, -28)
+scale = Vector2(0.4, 0.363636)
+texture = ExtResource("5_m7bfv")
+
+[editable path="interactArea"]

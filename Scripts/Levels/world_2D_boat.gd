@@ -13,7 +13,6 @@ func _can_interact(interactable: InteractArea) -> void:
 	interacting_with = interactable
 	
 func _cannot_interact() -> void:
-	print("pout")
 	interacting_with = null
 
 func _process(delta: float) -> void:
@@ -24,3 +23,5 @@ func _process(delta: float) -> void:
 		print("interact:"+interacting_with.name)
 		if interacting_with.TYPE == "portal":
 			interactables.interact_portal(interacting_with.name)
+		elif interacting_with.TYPE == "storage":
+			interactables.interact_storage(interacting_with.name)

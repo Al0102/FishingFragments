@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjofwjunmmm5j"]
+
+[ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="1_se4ar"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interact_storage.gd" id="2_2qrn2"]
+[ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="2_lqqv3"]
+[ext_resource type="Texture2D" uid="uid://bgij1on1mjto2" path="res://Images/Cupboard.png" id="3_m083n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs37s"]
+size = Vector2(48, 24)
+
+[node name="cupboard" node_paths=PackedStringArray("label") instance=ExtResource("1_se4ar")]
+script = ExtResource("2_2qrn2")
+label = NodePath("popupLabel")
+
+[node name="popupLabel" parent="." index="0" instance=ExtResource("2_lqqv3")]
+position = Vector2(-2.84217e-14, -16)
+
+[node name="cupboardSprite" type="Sprite2D" parent="." index="1"]
+position = Vector2(-1.42109e-14, -1.77636e-15)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_m083n")
+
+[node name="CollisionShape2D" parent="interactArea2D" index="0"]
+shape = SubResource("RectangleShape2D_cs37s")

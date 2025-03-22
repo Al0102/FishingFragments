@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://daniqccksjmtu"]
+
+[ext_resource type="PackedScene" uid="uid://brf0ihr5t1sip" path="res://Scenes/Levels/worldui/storage_level.tscn" id="1_ssj04"]
+[ext_resource type="Texture2D" uid="uid://bgij1on1mjto2" path="res://Images/Cupboard.png" id="2_ej1bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd8bo"]
+size = Vector2(192, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4s4j"]
+size = Vector2(192, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l77b"]
+size = Vector2(192, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xoad"]
+size = Vector2(8, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrwt5"]
+size = Vector2(6, 95.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdap8"]
+size = Vector2(183, 6)
+
+[node name="cupboard_storage_level" instance=ExtResource("1_ssj04")]
+
+[node name="CupboardSprite" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ej1bx")
+
+[node name="CupboardColliders" type="Node2D" parent="." index="3"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CupboardColliders" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D" index="0"]
+position = Vector2(0, 42.5)
+shape = SubResource("RectangleShape2D_fd8bo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="CupboardColliders" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D2" index="0"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_y4s4j")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="CupboardColliders" index="2"]
+position = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D3" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_6l77b")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="CupboardColliders" index="3"]
+position = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D4" index="0"]
+position = Vector2(-92, 52)
+shape = SubResource("RectangleShape2D_5xoad")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="CupboardColliders" index="4"]
+position = Vector2(164, -84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D5" index="0"]
+position = Vector2(-72, 84)
+shape = SubResource("RectangleShape2D_vrwt5")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="CupboardColliders" index="5"]
+position = Vector2(328, -168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CupboardColliders/StaticBody2D6" index="0"]
+position = Vector2(-328.5, 119)
+shape = SubResource("RectangleShape2D_fdap8")

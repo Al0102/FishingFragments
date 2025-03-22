@@ -13,9 +13,6 @@ func hideLabel():
 func _ready():
 	hideLabel()
 
-func interact():
-	pass
-
 func _on_interact_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.can_interact_with_me.emit(self)
