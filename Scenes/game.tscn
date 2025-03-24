@@ -23,7 +23,7 @@ player = NodePath("world_2D/Player")
 [node name="world_2D" type="Node" parent="."]
 
 [node name="Inside" parent="world_2D" node_paths=PackedStringArray("interactables", "camera") instance=ExtResource("3_1y6ot")]
-position = Vector2(-259, 14)
+position = Vector2(-440, -64)
 script = ExtResource("3_hsvns")
 interactables = NodePath("interactables")
 camera = NodePath("../Player/Camera2D")
@@ -36,7 +36,7 @@ script = ExtResource("7_qpiww")
 destination = NodePath("PortalDestination")
 
 [node name="PortalDestination" parent="world_2D/Inside/interactables/door_outside" index="2" instance=ExtResource("9_eu83q")]
-position = Vector2(203, 2)
+position = Vector2(156, 0)
 
 [node name="door_storage" parent="world_2D/Inside/interactables" index="1"]
 script = ExtResource("7_qpiww")
@@ -47,16 +47,30 @@ script = ExtResource("7_qpiww")
 [node name="door_bedroom" parent="world_2D/Inside/interactables" index="3"]
 script = ExtResource("7_qpiww")
 
+[node name="Parallax2D" parent="world_2D/Inside" index="2"]
+scroll_offset = Vector2(696, 132)
+repeat_times = 1
+
+[node name="Sprite2D" parent="world_2D/Inside/Parallax2D" index="0"]
+position = Vector2(1136, 460)
+scale = Vector2(71.75, 40.75)
+
 [node name="Outside" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("7_o1mud")]
 camera = NodePath("../Player/Camera2D")
 
+[node name="PortalDestination" parent="world_2D/Outside/interactables/door_inside" index="2"]
+position = Vector2(-164, 8)
+
+[node name="Node2D" parent="world_2D/Outside" index="3"]
+position = Vector2(200, -16)
+
 [node name="Player" parent="world_2D" instance=ExtResource("1_xlduq")]
 z_index = 2
-position = Vector2(107, -5)
+position = Vector2(104, 0)
 
 [node name="Camera2D" type="Camera2D" parent="world_2D/Player"]
-position = Vector2(16, -8)
-zoom = Vector2(8, 8)
+position = Vector2(0, -16)
+zoom = Vector2(6, 6)
 
 [node name="world_ui" type="Node" parent="."]
 

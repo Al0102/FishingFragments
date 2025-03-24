@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://360xwfyvqukl"]
+
+[node name="Parallax" type="Parallax2D"]
+z_index = -100
+scale = Vector2(0.515, 0.515)
+repeat_size = Vector2(800, 0)
