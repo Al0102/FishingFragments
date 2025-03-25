@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://brf0ihr5t1sip"]
 
-[ext_resource type="Script" path="res://Scripts/Levels/storage_level.gd" id="1_y0b7a"]
+[ext_resource type="Script" path="res://Scripts/Levels/storage_game.gd" id="1_y0b7a"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_piag7"]
 a = Vector2(0, -112)

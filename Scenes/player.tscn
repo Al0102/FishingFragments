@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxtef406sl7a3"]
+[gd_scene load_steps=8 format=3 uid="uid://bxtef406sl7a3"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_pd11i"]
 [ext_resource type="Texture2D" uid="uid://bankxpv0s5gmp" path="res://Images/Witch.png" id="2_b6u8t"]
+[ext_resource type="Texture2D" uid="uid://b4oqlppxjb1oo" path="res://Images/IMG_6429.PNG" id="3_8tnpb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe6fb"]
 atlas = ExtResource("2_b6u8t")
 region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfj6s"]
+atlas = ExtResource("3_8tnpb")
+region = Rect2(351, 250, 49, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7db1"]
 animations = [{
@@ -16,13 +21,22 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfj6s")
+}],
+"loop": true,
+"name": &"new",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8m7o"]
 size = Vector2(13, 32)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_pd11i")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w7db1")

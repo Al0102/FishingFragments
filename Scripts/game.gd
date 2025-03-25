@@ -6,11 +6,13 @@ class_name Game
 @export var level_Outside: Level
 @export var level_Inside: Level
 @export var level_Storage: Level
+@export var level_Fishing: Level
 
 @onready var levels = {
 	"Outside":level_Outside,
 	"Inside":level_Inside,
-	"Cupboard": level_Storage}
+	"Cupboard": level_Storage,
+	"Fishing": level_Fishing}
 
 
 @export_group("worlds")
@@ -23,7 +25,10 @@ class_name Game
 		"levels": ["Outside", "Inside"]},
 	"world_ui": {
 		"node": world_ui,
-		"levels": ["Cupboard"]
+		"levels": [
+			"Cupboard",
+			"Fishing"
+		]
 	}
 }
 
@@ -94,14 +99,19 @@ func _on_popup_open(popup_world: String, popup_level: String) -> void:
 			popup_world in worlds and (
 			popup_level in worlds[popup_world]["levels"])),
 			"popup world or level doesn't exist")
-			
+	
+	# Pause and destroy lower
+	GameManager.pause_node(levels[current_level])
 	GameManager.pause_node(worlds[current_world]["node"])
 	if not popups.is_empty():
 		GameManager.pause_node(popups[-1]["world"])
 		GameManager.pause_node(popups[-1]["level"])
+
+	# Open new popup
 	popups.append({
 		"world": worlds[popup_world]["node"],
 		"level": levels[popup_level]})
+	# Actual opening of the level
 	add_child(popups[-1]["world"])
 	popups[-1]["world"].add_child(popups[-1]["level"])
 	popups[-1]["level"].camera.make_current()

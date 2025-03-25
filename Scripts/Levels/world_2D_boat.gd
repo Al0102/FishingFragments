@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 		print("interact:"+interacting_with.name)
 		if interacting_with.TYPE == "portal":
 			interactables.interact_portal(interacting_with.name)
-		elif interacting_with.TYPE == "storage":
-			interactables.interact_storage(interacting_with.name)
+		elif interacting_with.TYPE == "ui":
+			interactables.interact_ui(interacting_with.name)

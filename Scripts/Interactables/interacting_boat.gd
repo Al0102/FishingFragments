@@ -7,8 +7,10 @@ var portals = {
 		"level_to": "Outside"},
 }
 
-var storage_levels = {
-	"cupboard": "Cupboard"
+# interactable.name: ui_screen.name
+var ui_levels = {
+	"cupboard": "Cupboard",
+	"game_fishing": "Fishing"
 }
 
 func _ready():
@@ -24,6 +26,6 @@ func interact_portal(name: String):
 	var new_pos = portals[name].get_or_add("player_pos", Vector2(0,0))
 	GameManager.SetPlayerPosition.emit(portals[name]["player_pos"])
 
-func interact_storage(name: String):
+func interact_ui(name: String):
 	print(name)
-	GameManager.PopupOpen.emit("world_ui", storage_levels[name])
+	GameManager.PopupOpen.emit("world_ui", ui_levels[name])
