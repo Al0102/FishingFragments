@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://kdiqu3j2l1gw"]
+[gd_scene load_steps=8 format=4 uid="uid://kdiqu3j2l1gw"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_bjmw5"]
 [ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="2_0wg6a"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://0u7rflvdpu7g" path="res://Images/temp cloud.png" id="5_m7bfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgwvr"]
+
+[sub_resource type="Curve" id="Curve_jh7ek"]
+_data = [Vector2(0.410526, 0.0879121), 0.0, 0.0, 0, 0, Vector2(0.773684, 0.164835), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bjmw5")
@@ -33,5 +37,10 @@ shape = SubResource("RectangleShape2D_bgwvr")
 position = Vector2(-1.90735e-06, -28)
 scale = Vector2(0.4, 0.363636)
 texture = ExtResource("5_m7bfv")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(148, -19)
+points = PackedVector2Array(-41, -31, -27, -30, -19, -30, -14, -27, -8, -23, -3, -20, 0, -16, 2, -11, 2, -4, 2, 2, 1, 8)
+width_curve = SubResource("Curve_jh7ek")
 
 [editable path="interactArea"]

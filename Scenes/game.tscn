@@ -90,3 +90,4 @@ position = Vector2(-704, 196)
 [editable path="world_2D/Outside/interactables/door_inside"]
 [editable path="world_2D/Outside/interactables/game_fishing"]
 [editable path="world_ui/Cupboard"]
+[editable path="world_ui/Fishing"]

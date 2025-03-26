@@ -4,9 +4,7 @@ enum Scenes {FISHING}
 var current_scene: Scenes
 
 func pause_node(node: Node):
-	print(node)
 	if node is Node2D:
-		print ("truehieurfrferfrf")
 		node.visible = false
 	node.process_mode = Node.PROCESS_MODE_DISABLED
 func unpause_node(node: Node):
