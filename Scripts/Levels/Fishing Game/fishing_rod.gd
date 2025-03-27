@@ -5,5 +5,11 @@ extends Node2D
 
 @onready var animation_states = animation_tree["parameters/playback"]
 
+var hooked_fish: Fish = null
+
+func _ready() -> void:
+	print("Rod init")
+
 func _process(delta: float) -> void:
-	state_machine.process()
+	if hooked_fish:
+		print(hooked_fish)

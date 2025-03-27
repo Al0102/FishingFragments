@@ -79,9 +79,11 @@ func _ready() -> void:
 
 
 func switch_level(new_level: String):
+	levels[current_level].exit()
 	worlds[current_world]["node"].remove_child(levels[current_level])
 	current_level = new_level
 	worlds[current_world]["node"].add_child(levels[current_level])
+	levels[current_level].enter()
 
 func switch_world(new_world: String, new_level: String):
 	remove_child(worlds[current_world]["node"])
@@ -114,7 +116,7 @@ func _on_popup_open(popup_world: String, popup_level: String) -> void:
 	# Actual opening of the level
 	add_child(popups[-1]["world"])
 	popups[-1]["world"].add_child(popups[-1]["level"])
-	popups[-1]["level"].camera.make_current()
+	popups[-1]["level"].enter()
 
 # Closes popup of popups[index] and everything after as well
 func _on_popup_close(index: int=-1) -> void:

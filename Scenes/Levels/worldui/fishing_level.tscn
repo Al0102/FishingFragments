@@ -1,17 +1,21 @@
-[gd_scene load_steps=36 format=4 uid="uid://d4evupfppdkg2"]
+[gd_scene load_steps=58 format=4 uid="uid://d4evupfppdkg2"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/worldui/fishing_level.gd" id="1_k8fli"]
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_rod.gd" id="2_fmak1"]
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="2_gaq2v"]
 [ext_resource type="Texture2D" uid="uid://cv7hunds1px5o" path="res://Images/Fishing Minigame/bobber.png" id="3_3hv1q"]
 [ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Tilesets/sea decor.tres" id="3_3yl7s"]
-[ext_resource type="Script" path="res://Scripts/Utility/state_machine.gd" id="4_2ajla"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="4_cgw4p"]
-[ext_resource type="Script" path="res://Scripts/Utility/state.gd" id="5_1fy0g"]
 [ext_resource type="Texture2D" uid="uid://hr3ilh1qhmrr" path="res://Images/SEA BACKGROUND/Front BG.png" id="5_kay8b"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/rod_state_machine.gd" id="5_utq5l"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/idle_in.gd" id="6_lchoh"]
 [ext_resource type="Texture2D" uid="uid://bfhjnjvbug0lk" path="res://Images/SEA BACKGROUND/Water BG.png" id="6_lu3uh"]
 [ext_resource type="Texture2D" uid="uid://d02ie62gnnucy" path="res://Images/Fishing Minigame/boat_stool_bucket.png" id="7_lnsqp"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/cast.gd" id="7_tl80k"]
 [ext_resource type="Texture2D" uid="uid://cbkbvn1usotu8" path="res://Images/Fishing Minigame/rod_cast.png" id="8_ao3cf"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/idle_out.gd" id="8_clv6n"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/reel.gd" id="9_xtpic"]
+[ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/bobber_sink.gd" id="10_o2dvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy2a1"]
 atlas = ExtResource("3_3hv1q")
@@ -44,6 +48,22 @@ region = Rect2(96, 0, 96, 560)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3r35"]
 atlas = ExtResource("8_ao3cf")
 region = Rect2(192, 0, 96, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_algit"]
+atlas = ExtResource("8_ao3cf")
+region = Rect2(672, 0, 96, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1714"]
+atlas = ExtResource("8_ao3cf")
+region = Rect2(576, 0, 96, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovnms"]
+atlas = ExtResource("8_ao3cf")
+region = Rect2(384, 0, 96, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5nmn"]
+atlas = ExtResource("8_ao3cf")
+region = Rect2(480, 0, 96, 560)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0u0e"]
 animations = [{
@@ -87,9 +107,32 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_algit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1714")
+}],
+"loop": false,
 "name": &"reel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_algit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1714")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovnms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5nmn")
+}],
+"loop": true,
+"name": &"reel success",
 "speed": 5.0
 }]
 
@@ -302,107 +345,6 @@ tracks/7/keys = {
 "values": [-0.0720404, -0.561996, 0.0907571, 0.659734, 1.72089, -2.91222, -2.1989, -1.30725, -0.260054, -1.5708, 0.71733, 0.836585, -0.0872665]
 }
 
-[sub_resource type="Animation" id="Animation_4w8um"]
-resource_name = "idle out"
-length = 2.5
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1.3, 0.108095),
-"update": 0,
-"values": [Vector2(-133.277, 42.6886), Vector2(-132.486, 53.66)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(3.36358),
-"update": 0,
-"values": [-0.436332]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Line2D:points")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1.3, 0.108),
-"update": 0,
-"values": [PackedVector2Array(-75.5837, -68.149, -38.365, -68.4985, -0.507751, -69.6277, 43.5631, -68.3217, 68.9675, -63.4296, 89.612, -54.394, 99.9214, -44.4301, 104.744, -33.6123, 106.868, -20.3327, 104.054, -11.0482, 98.5991, -2.71353), PackedVector2Array(-66.8163, -68.8333, -33.995, -70.0539, 9.14951, -68.4678, 49.2463, -66.266, 70.2212, -61.5749, 89.3231, -53.0715, 104.497, -41.7142, 109.31, -28.2635, 109.673, -18.7218, 106.04, -10.4332, 101.075, -2.56219)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../bobber:texture:region")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Rect2(0, 0, 16, 32), Rect2(0, 0, 16, 28)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../bobber:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-406.451, 22.268)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".:animation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../bobber:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.7, 0.7)]
-}
-
 [sub_resource type="Animation" id="Animation_ab88r"]
 resource_name = "idle in"
 length = 2.5
@@ -504,13 +446,430 @@ tracks/7/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_4w8um"]
+resource_name = "idle out"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1.3, 0.108095),
+"update": 0,
+"values": [Vector2(-133.277, 42.6886), Vector2(-132.486, 53.66)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(3.36358),
+"update": 0,
+"values": [-0.436332]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1.3, 0.108),
+"update": 0,
+"values": [PackedVector2Array(-75.5837, -68.149, -38.365, -68.4985, -0.507751, -69.6277, 43.5631, -68.3217, 68.9675, -63.4296, 89.612, -54.394, 99.9214, -44.4301, 104.744, -33.6123, 106.868, -20.3327, 104.054, -11.0482, 98.5991, -2.71353), PackedVector2Array(-66.8163, -68.8333, -33.995, -70.0539, 9.14951, -68.4678, 49.2463, -66.266, 70.2212, -61.5749, 89.3231, -53.0715, 104.497, -41.7142, 109.31, -28.2635, 109.673, -18.7218, 106.04, -10.4332, 101.075, -2.56219)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../bobber:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 32), Rect2(0, 0, 16, 28)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../bobber:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-406.451, 22.268)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../bobber:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_i1lg5"]
+resource_name = "reel"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.82, 1),
+"update": 0,
+"values": [-0.436332, 0.254818]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"reel"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2.82843, 2.37842),
+"update": 0,
+"values": [0, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.366667, 0.5),
+"transitions": PackedFloat32Array(7.99998, 3.13834, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-2.08637, -106.129, 24.5949, -102.796, 39.4306, -101.703, 56.2699, -98.88, 72.4138, -91.8659, 89.1392, -82.2203, 99.3346, -65.4337, 106.685, -46.8434, 108.84, -26.0832, 104.054, -11.0482, 98.3086, -4.02884), PackedVector2Array(5.19601, -120.872, 40.9611, -127.8, 65.0002, -125.418, 89.3672, -95.8658, 96.2819, -79.2491, 100.061, -62.1444, 103.259, -47.6711, 106.457, -33.1978, 107.304, -18.3586, 106.785, -6.02878, 106.728, -2.6174), PackedVector2Array(-5.20177, -134.905, 40.5115, -129.064, 67.2328, -122.764, 87.0983, -109.803, 96.1052, -87.3876, 103.197, -62.6324, 108.398, -46.4295, 111.597, -31.9562, 113.72, -18.6767, 115.464, -10.7822, 117.006, -0.134216), PackedVector2Array(-23.4749, -173.572, 34.5394, -145.855, 96.889, -87.5096, 119.372, -48.1376, 123.733, -28.4013, 126.64, -15.2438, 127.949, -9.32297, 128.037, -5.25369, 129.548, -2.08633, 130.129, 0.545166, 130.072, 3.95654)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../bobber:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.5),
+"transitions": PackedFloat32Array(6.27667, 0.25, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 20), Rect2(0, 0, 16, 20), Rect2(0, 0, 16, 28)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../bobber:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.333333, 0.5),
+"transitions": PackedFloat32Array(2.73208, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-404.743, 18.1346), Vector2(-408.014, 28.3962), Vector2(-408.796, 31.4603), Vector2(-420.82, 59.3967)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.277, 42.6886)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../bobber:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_xrex4"]
+resource_name = "reel success"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(2.82, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.436332, 0.254818, 0.254818, 0.0, -0.436332]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"reel success"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(2.82843, 2.37842, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.366667, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(7.99998, 3.13834, 1, 3.86374, 0.933033, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-2.08637, -106.129, 24.5949, -102.796, 39.4306, -101.703, 56.2699, -98.88, 72.4138, -91.8659, 89.1392, -82.2203, 99.3346, -65.4337, 106.685, -46.8434, 108.84, -26.0832, 104.054, -11.0482, 98.3086, -4.02884), PackedVector2Array(-12.5412, -116.75, 35.3604, -120.123, 60.474, -116.547, 89.3672, -95.8658, 96.2819, -79.2491, 100.061, -62.1444, 103.259, -47.6711, 106.457, -33.1978, 107.304, -18.3586, 106.785, -6.02878, 106.728, -2.6174), PackedVector2Array(-5.20177, -134.905, 40.5115, -129.064, 67.2328, -122.764, 87.0983, -109.803, 96.1052, -87.3876, 103.197, -62.6324, 108.398, -46.4295, 111.597, -31.9562, 113.72, -18.6767, 115.464, -10.7822, 117.006, -0.134216), PackedVector2Array(-23.4749, -173.572, 34.5394, -145.855, 96.889, -87.5096, 119.372, -48.1376, 123.733, -28.4013, 126.64, -15.2438, 127.949, -9.32297, 128.037, -5.25369, 129.548, -2.08633, 130.129, 0.545166, 130.072, 3.95654), PackedVector2Array(-121.205, -201.231, -41.9959, -169.328, 20.9865, -130.135, 69.7716, -92.8156, 84.499, -66.5269, 91.3568, -46.4988, 92.6964, -33.0973, 88.7517, -21.5953, 81.6403, -17.0858, 75.6034, -11.3827, 70.8435, -7.2392), PackedVector2Array(-116.308, -138.706, -72.9639, -140.69, -34.5823, -135.776, 3.68538, -124.04, 21.3399, -113.858, 28.9501, -101.433, 40.5108, -82.1365, 46.3197, -74.1941, 54.7138, -61.8907, 63.3671, -55.7521, 68.7969, -53.1948), PackedVector2Array(-73.2317, -68.5147, -44.3757, -73.6869, -15.665, -79.5169, 15.2518, -86.3708, 27.2999, -86.8852, 35.5742, -86.1316, 40.7132, -84.89, 46.3453, -85.0862, 56.8258, -85.3565, 63.7348, -87.1125, 73.9245, -88.6986)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../bobber:texture:region")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.5, 0.6),
+"transitions": PackedFloat32Array(6.27667, 0.25, 3.73213, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 20), Rect2(0, 0, 16, 20), Rect2(0, 0, 16, 28), Rect2(0, 0, 16, 96)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../bobber:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.333333, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(2.73208, 1, 1, 3.86374, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-404.743, 18.1346), Vector2(-408.014, 28.3962), Vector2(-408.796, 31.4603), Vector2(-420.82, 59.3967), Vector2(-394.625, 19.4108), Vector2(-323.8, 28.3439), Vector2(-272.708, 41.7066)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.277, 42.6886)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../bobber:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.9, 0.9), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o6w28"]
+resource_name = "bobber sink"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Line2D:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-72.9196, -68.3569, -37.0371, -68.9711, 2.42673, -69.2752, 45.29, -67.6971, 69.3484, -62.866, 89.5242, -53.9921, 101.312, -43.6048, 106.131, -31.987, 107.72, -19.8432, 104.657, -10.8613, 99.3514, -2.66754), PackedVector2Array(-72.9196, -68.3569, -37.0371, -68.9711, 2.42673, -69.2752, 45.29, -67.6971, 69.3484, -62.866, 89.5242, -53.9921, 101.312, -43.6048, 106.131, -31.987, 107.72, -19.8432, 108.758, -11.7798, 109.573, -4.42117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../bobber:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 30.4), Rect2(0, 0, 16, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../bobber:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-406.451, 22.268), Vector2(-406.019, 28.2525)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.436332]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-133.132, 44.7012)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../bobber:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 0.9)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpekc"]
 _data = {
 "RESET": SubResource("Animation_8bmfe"),
+"bobber sink": SubResource("Animation_o6w28"),
 "cast": SubResource("Animation_x8pn4"),
 "idle in": SubResource("Animation_ab88r"),
-"idle out": SubResource("Animation_4w8um")
+"idle out": SubResource("Animation_4w8um"),
+"reel": SubResource("Animation_i1lg5"),
+"reel success": SubResource("Animation_xrex4")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bgrpj"]
+animation = &"bobber sink"
+play_mode = 1
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_67o7g"]
+animation = &"bobber sink"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2k8ob"]
 animation = &"cast"
@@ -521,6 +880,12 @@ animation = &"idle in"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u075b"]
 animation = &"idle out"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_em6j6"]
+animation = &"reel success"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eddyu"]
+animation = &"reel"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ttm4f"]
 advance_mode = 2
 
@@ -529,24 +894,53 @@ break_loop_at_end = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wel8t"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_df0ab"]
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_232lu"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rd75n"]
 break_loop_at_end = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mek3f"]
+break_loop_at_end = true
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f2r55"]
+break_loop_at_end = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mnuvj"]
+break_loop_at_end = true
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e48lm"]
+break_loop_at_end = true
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a40ss"]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tsryp"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bej8w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k8lpk"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_02cfv"]
 states/End/position = Vector2(902, 100)
 states/Start/position = Vector2(114, 106)
+"states/bobber float/node" = SubResource("AnimationNodeAnimation_bgrpj")
+"states/bobber float/position" = Vector2(484, 415)
+"states/bobber sink/node" = SubResource("AnimationNodeAnimation_67o7g")
+"states/bobber sink/position" = Vector2(572, 335)
 states/cast/node = SubResource("AnimationNodeAnimation_2k8ob")
-states/cast/position = Vector2(211, 188)
+states/cast/position = Vector2(285, 335)
 "states/idle in/node" = SubResource("AnimationNodeAnimation_ump1x")
 "states/idle in/position" = Vector2(285, 106)
 "states/idle out/node" = SubResource("AnimationNodeAnimation_u075b")
-"states/idle out/position" = Vector2(403, 188)
-transitions = ["Start", "idle in", SubResource("AnimationNodeStateMachineTransition_ttm4f"), "idle in", "cast", SubResource("AnimationNodeStateMachineTransition_3bwof"), "idle in", "End", SubResource("AnimationNodeStateMachineTransition_wel8t"), "cast", "idle out", SubResource("AnimationNodeStateMachineTransition_df0ab"), "idle out", "End", SubResource("AnimationNodeStateMachineTransition_232lu")]
-graph_offset = Vector2(-107, 28)
+"states/idle out/position" = Vector2(406, 335)
+states/reel/node = SubResource("AnimationNodeAnimation_eddyu")
+states/reel/position = Vector2(406, 247)
+"states/reel success/node" = SubResource("AnimationNodeAnimation_em6j6")
+"states/reel success/position" = Vector2(406, 164)
+transitions = ["Start", "idle in", SubResource("AnimationNodeStateMachineTransition_ttm4f"), "idle in", "cast", SubResource("AnimationNodeStateMachineTransition_3bwof"), "idle in", "End", SubResource("AnimationNodeStateMachineTransition_wel8t"), "idle out", "reel", SubResource("AnimationNodeStateMachineTransition_rd75n"), "cast", "idle out", SubResource("AnimationNodeStateMachineTransition_mek3f"), "reel", "idle out", SubResource("AnimationNodeStateMachineTransition_f2r55"), "reel", "reel success", SubResource("AnimationNodeStateMachineTransition_mnuvj"), "reel success", "idle in", SubResource("AnimationNodeStateMachineTransition_e48lm"), "idle out", "bobber sink", SubResource("AnimationNodeStateMachineTransition_a40ss"), "bobber sink", "bobber float", SubResource("AnimationNodeStateMachineTransition_tsryp"), "bobber float", "idle out", SubResource("AnimationNodeStateMachineTransition_bej8w"), "bobber sink", "reel", SubResource("AnimationNodeStateMachineTransition_k8lpk")]
+graph_offset = Vector2(28, 192.885)
 
 [node name="FishingLevel" type="Node2D" node_paths=PackedStringArray("rod", "camera")]
 script = ExtResource("1_k8fli")
@@ -561,7 +955,7 @@ position = Vector2(1032, 360)
 rotation = 0.0719291
 script = ExtResource("2_fmak1")
 animation_tree = NodePath("../AnimationTree")
-state_machine = NodePath("StateMachine")
+state_machine = NodePath("RodStateMachine")
 
 [node name="bobber" type="Sprite2D" parent="Rod"]
 position = Vector2(-272.653, 14.6326)
@@ -588,11 +982,34 @@ libraries = {
 "": SubResource("AnimationLibrary_vpekc")
 }
 
-[node name="StateMachine" type="Node2D" parent="Rod"]
-script = ExtResource("4_2ajla")
+[node name="RodStateMachine" type="Node2D" parent="Rod" node_paths=PackedStringArray("rod", "states")]
+script = ExtResource("5_utq5l")
+rod = NodePath("..")
+states = [NodePath("State_Rod_Idle_In"), NodePath("State_Rod_Cast"), NodePath("State_Rod_Idle_Out"), NodePath("State_Rod_Reel"), NodePath("State_Rod_Bobber_Sink")]
 
-[node name="State" type="Node2D" parent="Rod/StateMachine"]
-script = ExtResource("5_1fy0g")
+[node name="State_Rod_Idle_In" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("cast_state")]
+script = ExtResource("6_lchoh")
+cast_state = NodePath("../State_Rod_Cast")
+
+[node name="State_Rod_Cast" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("idle_out_state")]
+script = ExtResource("7_tl80k")
+idle_out_state = NodePath("../State_Rod_Idle_Out")
+
+[node name="State_Rod_Idle_Out" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("reel_state", "bobber_sink_state")]
+script = ExtResource("8_clv6n")
+reel_state = NodePath("../State_Rod_Reel")
+bobber_sink_state = NodePath("../State_Rod_Bobber_Sink")
+chance_per_second = 0.05
+
+[node name="State_Rod_Reel" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("idle_in_state", "idle_out_state")]
+script = ExtResource("9_xtpic")
+idle_in_state = NodePath("../State_Rod_Idle_In")
+idle_out_state = NodePath("../State_Rod_Idle_Out")
+
+[node name="State_Rod_Bobber_Sink" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("reel_state", "idle_out_state")]
+script = ExtResource("10_o2dvr")
+reel_state = NodePath("../State_Rod_Reel")
+idle_out_state = NodePath("../State_Rod_Idle_Out")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Rod/Rod Sprite")
@@ -602,6 +1019,8 @@ anim_player = NodePath("../Rod/AnimationPlayer")
 [node name="BG" type="Node2D" parent="."]
 z_index = -10
 position = Vector2(524, 324)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Sky Back" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.1, 1)
@@ -647,14 +1066,13 @@ tile_set = ExtResource("3_3yl7s")
 
 [node name="Birds" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.8, 1)
-scroll_offset = Vector2(1152, 0)
 repeat_size = Vector2(3000, 0)
 autoscroll = Vector2(-15, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="BG/Birds"]
-position = Vector2(0, -20)
+position = Vector2(1132, -34)
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray("AADJ//P/AQAAAAcAAADK//P/AQABAAcAAADL//H/AQAAAAcAAADL//P/AQACAAcAAADM//H/AQABAAcAAADM//P/AQADAAcAAADN//H/AQACAAcAAADO/+//AQAHAAcAAADO//H/AQADAAcAAADP/+//AQAIAAcAAADQ/+//AQAJAAcAAADS//D/AQAEAAcAAADT//D/AQAFAAcAAADU//D/AQAGAAcAAADW//H/AQAAAAcAAADX//H/AQABAAcAAADY//H/AQACAAcAAADZ//H/AQADAAcAAAA=")
+tile_map_data = PackedByteArray("AADB//T/AQAAAAcAAADC//T/AQABAAcAAADD//L/AQAAAAcAAADD//T/AQACAAcAAADE//L/AQABAAcAAADE//T/AQADAAcAAADF//L/AQACAAcAAADG//D/AQAHAAcAAADG//L/AQADAAcAAADH//D/AQAIAAcAAADI//D/AQAJAAcAAADK//H/AQAEAAcAAADL//H/AQAFAAcAAADM//H/AQAGAAcAAADO//L/AQAAAAcAAADP//L/AQABAAcAAADQ//L/AQACAAcAAADR//L/AQADAAcAAAA=")
 tile_set = ExtResource("3_3yl7s")
 
 [node name="Cloud Mid" type="Parallax2D" parent="BG"]
