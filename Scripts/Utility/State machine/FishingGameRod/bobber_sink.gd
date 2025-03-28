@@ -29,6 +29,14 @@ func process(delta) -> State:
 		return idle_out_state
 	return null
 
+func input(event: InputEvent) -> State:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				hook_fish()
+				return reel_state
+	return null
+
 # TODO
 func hook_fish():
 	rod.hooked_fish = Fish.new()

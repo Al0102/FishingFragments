@@ -7,6 +7,7 @@ func pause_node(node: Node):
 	if node is Node2D:
 		node.visible = false
 	node.process_mode = Node.PROCESS_MODE_DISABLED
+	
 func unpause_node(node: Node):
 	if node is Node2D:
 		node.visible = true

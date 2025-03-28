@@ -135,18 +135,21 @@ func _on_popup_close(index: int=-1) -> void:
 	for i in range(size-1,index-1,-1):
 		GameManager.unpause_node(popups[i]["world"])
 		GameManager.unpause_node(popups[i]["level"])
+		
+		popups[i]["level"].exit()
 		popups[i]["world"].remove_child(popups[i]["level"])
 		if popups[i]["world"] != worlds[current_world]["node"]:
 			remove_child(popups[i]["world"])
 		popups.pop_back()
+		
 	if popups.is_empty():
 		GameManager.unpause_node(worlds[current_world]["node"])
 		GameManager.unpause_node(levels[current_level])
-		levels[current_level].camera.make_current()
+		levels[current_level].enter()
 	else:
 		GameManager.unpause_node(popups[index-1]["world"])
 		GameManager.unpause_node(popups[index-1]["level"])
-		popups[index-1]["level"].camera.make_current()
+		popups[index-1]["level"].enter()
 
 # sets global pos of player (e.g. for portals/switching levels)
 func _on_set_player_position(position: Vector2) -> void:

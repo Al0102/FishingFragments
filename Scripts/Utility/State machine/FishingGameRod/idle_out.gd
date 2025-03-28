@@ -17,13 +17,20 @@ func process(delta) -> State:
 	if Input.is_action_just_pressed("interact"):
 		return reel_state
 	return null
-
+	
 func physics(delta) -> State:
 	if roll_is_fish_hooked():
 		return bobber_sink_state
 	return null
-
+	
+func input(event: InputEvent) -> State:
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				return reel_state
+	return null
+	
+	
 func roll_is_fish_hooked() -> bool:
 	var x = randf()
-	print(x)
 	return x <= chance_per_second

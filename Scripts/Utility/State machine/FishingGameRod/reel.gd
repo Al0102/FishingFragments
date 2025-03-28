@@ -3,15 +3,7 @@ class_name State_Rod_Reel
 
 @export var idle_in_state: State
 @export var idle_out_state: State
-
-# progress is percent (Failure) 0% - 100% (Success)
-var progress: float = 0
-const START_PROGRESS = 0.5
-
-# Delete once fish difficulty is added
-var fish_strength = 0.2
-
-var pull_strength: float = 0.1
+@export var reel_game: ReelGame
 
 # user alternates up and down to reel in fish
 var up_pressed: bool = false
@@ -19,30 +11,28 @@ var up_pressed: bool = false
 func enter():
 	super()
 	rod.animation_states.travel("reel")
-	
-	progress = START_PROGRESS
-	
+	if rod.hooked_fish == null:
+		reel_game.start(0,100,100)
+	else:
+		# TODO replace arguments with fish data
+		reel_game.start(25.5)
+
 func exit():
 	rod.hooked_fish = null
+	reel_game.exit()
 
 func process(delta) -> State:
-	# Input
-	if (up_pressed and Input.is_action_just_pressed("down")) or (!up_pressed and Input.is_action_just_pressed("up")):
-		progress += pull_strength
-		up_pressed = !up_pressed
-		
-	# Fish swim away (decrease in progress)
-	progress -= fish_strength*delta
-	print(progress)
-	
 	# Check success status
-	
-	# Fish escaped
-	if progress <= 0:
-		return idle_out_state
-		
-	# Fish caught
-	if progress >= 1 or rod.hooked_fish == null:
-		rod.animation_states.travel("reel success")
-		return idle_in_state
-	return null
+	match reel_game.check_success():
+		# Fish escaped
+		reel_game.STATUS.ESCAPED:
+			return idle_out_state
+		# Fish caught
+		reel_game.STATUS.CAPTURED:
+			rod.animation_states.travel("reel success")
+			print("success")
+			rod.fish_captured.emit(rod.hooked_fish)
+			return idle_in_state
+		# Default
+		_:
+			return null

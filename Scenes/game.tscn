@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbo1317tc3udw" path="res://Scenes/Levels/world2d/outside.tscn" id="7_o1mud"]
 [ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="7_qpiww"]
 [ext_resource type="PackedScene" uid="uid://h5bny70g3ojw" path="res://Scenes/Interactables/portal_destination.tscn" id="9_eu83q"]
-[ext_resource type="PackedScene" uid="uid://d4evupfppdkg2" path="res://Scenes/Levels/worldui/fishing_level.tscn" id="10_bu8ed"]
+[ext_resource type="PackedScene" uid="uid://d4evupfppdkg2" path="res://Scenes/Levels/worldui/Fishing Game/fishing_level.tscn" id="10_bu8ed"]
 [ext_resource type="PackedScene" uid="uid://daniqccksjmtu" path="res://Scenes/Levels/worldui/cupboard_storage.tscn" id="10_lyenv"]
 
 [node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_Inside", "level_Storage", "level_Fishing", "world_2D", "world_ui", "player")]
