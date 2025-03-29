@@ -15,7 +15,9 @@ func enter():
 		reel_game.start(0,100,100)
 	else:
 		# TODO replace arguments with fish data
-		reel_game.start(25.5)
+		reel_game.start(rod.hooked_fish.data.strength)
+		print(rod.hooked_fish.data.name)
+		print(rod.hooked_fish.data.strength)
 
 func exit():
 	rod.hooked_fish = null

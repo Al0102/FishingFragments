@@ -5,13 +5,9 @@ extends Node2D
 
 @onready var animation_states = animation_tree["parameters/playback"]
 
-signal fish_captured(fish_item: Fish)
+signal fish_captured(fish_item: FishObject)
 
-var hooked_fish: Fish = null
+var hooked_fish: FishObject = null
 
 func _ready() -> void:
-	print("Rod init")
-
-func _process(delta: float) -> void:
-	if hooked_fish:
-		print(hooked_fish)
+	if Debug.debug_on: print("Rod init")

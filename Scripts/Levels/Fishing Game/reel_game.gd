@@ -14,6 +14,8 @@ var progress: float:
 
 var fish_strength: float
 var pull_strength: float
+const MIN_PULL_STRENGTH = 0.5
+const ENERGY_DEPLETE_FACTOR = 0.1
 
 func _ready():
 	exit()
@@ -36,14 +38,15 @@ func start(
 func exit():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
-
-func _process(delta: float) -> void:
-	print(check_success())
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	# Fish tug
 	progress -= fish_strength*delta
-	print("poopy")
+	# Energy depletion
+	pull_strength = max(
+		MIN_PULL_STRENGTH,
+		pull_strength-pull_strength*ENERGY_DEPLETE_FACTOR*delta)
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

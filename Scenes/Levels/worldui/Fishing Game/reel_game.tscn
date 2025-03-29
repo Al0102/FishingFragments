@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://b6phcxcaqo5ns"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/reel_game.gd" id="1_d4hux"]
-[ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Tilesets/fish_icons.tres" id="2_7sbqb"]
-[ext_resource type="Texture2D" uid="uid://dqbxnk0urxqtv" path="res://Images/Keys.png" id="3_bm5o4"]
+[ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="2_7sbqb"]
+[ext_resource type="Texture2D" uid="uid://bffykbgyqodnx" path="res://Images/Keys.png" id="3_bm5o4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_b1u7r"]
 
@@ -27,11 +27,11 @@ load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ct
 atlas = SubResource("CompressedTexture2D_iimju")
 region = Rect2(48, 13, 48, 35)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtniw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wojw5"]
 atlas = ExtResource("3_bm5o4")
 region = Rect2(221, 34, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stc2a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_va3dy"]
 atlas = ExtResource("3_bm5o4")
 region = Rect2(221, 51, 16, 16)
 
@@ -39,10 +39,10 @@ region = Rect2(221, 51, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dtniw")
+"texture": SubResource("AtlasTexture_wojw5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_stc2a")
+"texture": SubResource("AtlasTexture_va3dy")
 }],
 "loop": true,
 "name": &"default",
@@ -138,6 +138,6 @@ grow_vertical = 2
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_4rgeo")
 autoplay = "default"
-frame_progress = 0.445167
+frame_progress = 0.470607
 centered = false
 offset = Vector2(0, -8)
