@@ -1,5 +1,7 @@
 extends Level
 
+@export var inventory: Inventory
+
 var held_object = false
 
 func _ready():

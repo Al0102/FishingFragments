@@ -15,7 +15,7 @@ var progress: float:
 var fish_strength: float
 var pull_strength: float
 const MIN_PULL_STRENGTH = 0.5
-const ENERGY_DEPLETE_FACTOR = 0.1
+const ENERGY_DEPLETE_FACTOR = 0.15
 
 func _ready():
 	exit()

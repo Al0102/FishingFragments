@@ -1,12 +1,20 @@
-[gd_resource type="Resource" script_class="LootTable" load_steps=4 format=3 uid="uid://bhujpirrejitn"]
+[gd_resource type="Resource" script_class="LootTable" load_steps=7 format=3 uid="uid://bhujpirrejitn"]
 
 [ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table_item.gd" id="1_jidt4"]
 [ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table.gd" id="2_5gw7j"]
+[ext_resource type="Resource" uid="uid://bmp72aogswt2v" path="res://Resources/Items/Fish/placeholder_fish.tres" id="2_wa1ba"]
+[ext_resource type="Resource" uid="uid://cmxxsb4npifi3" path="res://Resources/Items/Fish/swordfish_fish.tres" id="3_k7tic"]
 
 [sub_resource type="Resource" id="Resource_a8jf8"]
 script = ExtResource("1_jidt4")
-weight = 0.0
+item = ExtResource("2_wa1ba")
+weight = 5.0
+
+[sub_resource type="Resource" id="Resource_bn00b"]
+script = ExtResource("1_jidt4")
+item = ExtResource("3_k7tic")
+weight = 1.0
 
 [resource]
 script = ExtResource("2_5gw7j")
-itemList = Array[ExtResource("1_jidt4")]([SubResource("Resource_a8jf8"), null])
+itemList = Array[ExtResource("1_jidt4")]([SubResource("Resource_a8jf8"), SubResource("Resource_bn00b")])

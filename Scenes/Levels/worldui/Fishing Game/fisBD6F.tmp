@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://d4evupfppdkg2"]
+[gd_scene load_steps=87 format=4 uid="uid://d4evupfppdkg2"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_level.gd" id="1_k8fli"]
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_rod.gd" id="2_fmak1"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/idle_out.gd" id="8_clv6n"]
 [ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/reel.gd" id="9_xtpic"]
 [ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/bobber_sink.gd" id="10_o2dvr"]
-[ext_resource type="Resource" uid="uid://bhujpirrejitn" path="res://Resources/Loot Tables/fish_loot_table.tres" id="11_xojxr"]
 [ext_resource type="PackedScene" uid="uid://b6phcxcaqo5ns" path="res://Scenes/Levels/worldui/Fishing Game/reel_game.tscn" id="17_1yl44"]
 [ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="18_aqrd4"]
 [ext_resource type="Script" path="res://Scenes/Levels/worldui/Fishing Game/control_hints.gd" id="18_c8x1g"]
@@ -2016,13 +2015,6 @@ load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ct
 atlas = SubResource("CompressedTexture2D_4t1aw")
 region = Rect2(48, 144, 48, 48)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_40f36"]
-load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_472re"]
-atlas = SubResource("CompressedTexture2D_40f36")
-region = Rect2(392, 205, 13, 14)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h3c4c"]
 load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ctex"
 
@@ -2139,18 +2131,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("FishCapturedScreen/BG:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_q335n"]
 resource_name = "fish captured"
@@ -2173,10 +2153,10 @@ tracks/1/path = NodePath("FishCapturedScreen/Fish:anchor_left")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1.41421, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.5, 0.4, 0.4, 0.15]
+"values": [0.5, 0.4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -2185,10 +2165,10 @@ tracks/2/path = NodePath("FishCapturedScreen/Fish:anchor_top")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1.41421, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.5, 0.4, 0.4, 0.8]
+"values": [0.5, 0.4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -2197,10 +2177,10 @@ tracks/3/path = NodePath("FishCapturedScreen/Fish:anchor_right")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.408333, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1.41421, 1),
+"times": PackedFloat32Array(0, 0.408333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.5, 0.6, 0.6, 0.15]
+"values": [0.5, 0.6]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -2209,10 +2189,10 @@ tracks/4/path = NodePath("FishCapturedScreen/Fish:anchor_bottom")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.408333, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1.41421, 1),
+"times": PackedFloat32Array(0, 0.408333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.5, 0.6, 0.6, 0.8]
+"values": [0.5, 0.6]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -2221,22 +2201,10 @@ tracks/5/path = NodePath("FishCapturedScreen:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.9, 1),
+"times": PackedFloat32Array(0, 0.6, 1),
 "transitions": PackedFloat32Array(1, 1.41421, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("FishCapturedScreen/BG:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(39.3966, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5o50p"]
@@ -2246,10 +2214,9 @@ _data = {
 "fish hooked alert": SubResource("Animation_bqke7")
 }
 
-[node name="FishingLevel" type="Node2D" node_paths=PackedStringArray("rod", "actionUI", "camera")]
+[node name="FishingLevel" type="Node2D" node_paths=PackedStringArray("rod", "camera")]
 script = ExtResource("1_k8fli")
 rod = NodePath("Rod")
-actionUI = NodePath("CanvasLayer/ActionUI")
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -2321,7 +2288,6 @@ reel_game = NodePath("../../../CanvasLayer/ReelGame")
 script = ExtResource("10_o2dvr")
 reel_state = NodePath("../State_Rod_Reel")
 idle_out_state = NodePath("../State_Rod_Idle_Out")
-loot_table = ExtResource("11_xojxr")
 
 [node name="BG" type="Node2D" parent="."]
 z_index = -10
@@ -2644,8 +2610,7 @@ offset_left = -24.0
 offset_top = -24.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-texture = SubResource("AtlasTexture_472re")
+texture = SubResource("AtlasTexture_w1pqu")
 expand_mode = 3
 
 [node name="Return" type="Control" parent="CanvasLayer/ControlsUI"]

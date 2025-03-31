@@ -15,6 +15,7 @@ point_count = 2
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_bjmw5")
 player = NodePath("Player")
+i = 19
 
 [node name="Player" parent="." instance=ExtResource("2_0wg6a")]
 position = Vector2(-64, 0)

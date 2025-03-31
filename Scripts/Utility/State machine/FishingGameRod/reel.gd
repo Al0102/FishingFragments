@@ -31,8 +31,9 @@ func process(delta) -> State:
 			return idle_out_state
 		# Fish caught
 		reel_game.STATUS.CAPTURED:
+			if Debug.debug_on: print("success")
+			
 			rod.animation_states.travel("reel success")
-			print("success")
 			rod.fish_captured.emit(rod.hooked_fish)
 			return idle_in_state
 		# Default

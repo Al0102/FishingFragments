@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b2yoq0tydwa5j"]
+
+[ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="1_u7p73"]
+
+[resource]
+atlas = ExtResource("1_u7p73")
+region = Rect2(96, 48, 48, 48)

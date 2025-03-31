@@ -1,5 +1,5 @@
 extends Node2D
-class_name FishObject
+class_name FishItem
 
 @export var data: FishData = null
 

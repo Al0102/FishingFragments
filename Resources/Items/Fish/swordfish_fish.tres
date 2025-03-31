@@ -9,8 +9,8 @@ region = Rect2(48, 0, 80, 32)
 
 [resource]
 script = ExtResource("1_5adsb")
+strength = 75.0
+rarity_weight = 1
 id = 1
 name = "swordfish"
 texture = SubResource("AtlasTexture_2qwv7")
-strength = 75.0
-rarity_weight = 1
