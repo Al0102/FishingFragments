@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwfk75spsv157"]
+[gd_scene load_steps=11 format=4 uid="uid://cwfk75spsv157"]
 
 [ext_resource type="Script" path="res://Scripts/Utility/Level.gd" id="1_dn1py"]
 [ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Tilesets/Boat.tres" id="2_dbm2w"]
@@ -20,6 +20,8 @@ region = Rect2(144, 96, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3xu1"]
 atlas = ExtResource("4_kpto5")
 region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6t3y"]
 
 [node name="Inside" type="Node2D"]
 script = ExtResource("1_dn1py")
@@ -107,6 +109,24 @@ repeat_times = 2
 position = Vector2(136, 48)
 scale = Vector2(17, 6)
 texture = SubResource("AtlasTexture_u3xu1")
+
+[node name="DEMO BLOCKED AREA" type="StaticBody2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DEMO BLOCKED AREA"]
+offset_left = 160.0
+offset_top = 28.0
+offset_right = 264.0
+offset_bottom = 68.0
+theme_override_colors/default_color = Color(0.768627, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.239343, 0.105138, 1)
+theme_override_constants/outline_size = 4
+text = "Coming Soon
+"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEMO BLOCKED AREA"]
+position = Vector2(204, 68)
+rotation = 1.5563
+shape = SubResource("WorldBoundaryShape2D_s6t3y")
 
 [editable path="interactables/door_outside"]
 [editable path="interactables/door_storage"]

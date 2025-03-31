@@ -7,7 +7,7 @@ func _ready():
 	
 func set_default():
 	show()
-	help_message.visible = false
+	help_message.visible = true
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:

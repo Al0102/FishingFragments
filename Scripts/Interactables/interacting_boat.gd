@@ -5,6 +5,9 @@ var portals = {
 		"level_to": "Inside"},
 	"door_outside":{
 		"level_to": "Outside"},
+	"player_spawn":{
+		"level_to": "Outside"
+	}
 }
 
 # interactable.name: ui_screen.name
@@ -15,10 +18,9 @@ var ui_levels = {
 
 func _ready():
 	# Portal Destinations
-	for portal in portals.keys():
-		var portal_node =  get_node(portal)
+	for portal_node in get_tree().get_nodes_in_group("portals"):
 		if portal_node:
-			portals[portal]["player_pos"] = portal_node.destination.global_position
+			portals[portal_node.name]["player_pos"] = portal_node.global_position
 
 func interact_portal(name: String):
 	GameManager.ChangeLevel.emit(portals[name]["level_to"])

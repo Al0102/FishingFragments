@@ -5,7 +5,7 @@ class_name State_Rod_Idle_Out
 @export var bobber_sink_state: State
 
 @export_range(0.0,1.0)
-var chance_per_second: float = 0.05:
+var chance_per_second: float:
 	set(value):
 		chance_per_second = value/60.0
 

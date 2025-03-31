@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctxl4wiakhduq"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/start_screen.gd" id="1_5hfo2"]
+[ext_resource type="PackedScene" uid="uid://cbi4o0c8dyw20" path="res://Scenes/Levels/worldmenu/start_screen_UI.tscn" id="2_5d4xd"]
+
+[node name="StartScreen" type="Node2D" node_paths=PackedStringArray("start_button", "camera")]
+script = ExtResource("1_5hfo2")
+start_button = NodePath("StartScreen/MarginContainer/Control/VBoxContainer/Control2/ColorRect/HBoxContainer/Start Button")
+camera = NodePath("StartScreen/Camera2D")
+
+[node name="StartScreen" parent="." instance=ExtResource("2_5d4xd")]
+offset_right = 1152.0
+offset_bottom = 648.0
+script = null
+
+[editable path="StartScreen"]

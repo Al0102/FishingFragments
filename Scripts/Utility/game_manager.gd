@@ -1,8 +1,5 @@
 extends Node
 
-enum Scenes {FISHING}
-var current_scene: Scenes
-
 func pause_node(node: Node):
 	if node is Node2D:
 		node.visible = false
@@ -13,13 +10,12 @@ func unpause_node(node: Node):
 		node.visible = true
 	node.process_mode = Node.PROCESS_MODE_INHERIT
 
-
 # SIGNALS
 # Game signals
 signal SetPlayerPosition
 signal ChangeLevel
-signal PopupOpen
-signal PopupClose
+signal PopupOpen(popup_world: String, popup_level: String)
+signal PopupClose(index: int)
 
 # Interactable signals
 signal can_interact_with_me

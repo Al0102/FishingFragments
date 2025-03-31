@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scripts/Interactables/portal_destination.gd" id="1_55agm"]
 
-[node name="PortalDestination" type="Node2D"]
+[node name="PortalDestination" type="Node2D" groups=["portals"]]
 script = ExtResource("1_55agm")

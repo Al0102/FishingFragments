@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bbo1317tc3udw"]
+[gd_scene load_steps=20 format=4 uid="uid://bbo1317tc3udw"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/world_2D_boat.gd" id="1_hsnxc"]
 [ext_resource type="Texture2D" uid="uid://d1dtrewx4ephi" path="res://Images/Ground tile.png" id="2_5u148"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="5_myxdd"]
 [ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="6_7x2ft"]
 [ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="7_84s7e"]
-[ext_resource type="PackedScene" uid="uid://h5bny70g3ojw" path="res://Scenes/Interactables/portal_destination.tscn" id="8_b13dw"]
 [ext_resource type="Script" path="res://Scripts/Interactables/interact_ui.gd" id="9_1rje3"]
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="9_bi4hs"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="10_28xso"]
@@ -77,10 +76,9 @@ tile_set = ExtResource("3_ei4ql")
 [node name="interactables" type="Node2D" parent="."]
 script = ExtResource("4_vm8wo")
 
-[node name="door_inside" parent="interactables" node_paths=PackedStringArray("destination", "label") instance=ExtResource("5_myxdd")]
+[node name="door_inside" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("5_myxdd")]
 position = Vector2(-44, -8)
 script = ExtResource("6_7x2ft")
-destination = NodePath("PortalDestination")
 label = NodePath("popupLabel")
 
 [node name="interactArea2D" parent="interactables/door_inside" index="0"]
@@ -92,9 +90,6 @@ shape = SubResource("RectangleShape2D_7tpxq")
 
 [node name="popupLabel" parent="interactables/door_inside" instance=ExtResource("7_84s7e")]
 position = Vector2(-4, -20)
-
-[node name="PortalDestination" parent="interactables/door_inside" instance=ExtResource("8_b13dw")]
-position = Vector2(-178.575, 17.3886)
 
 [node name="game_fishing" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("5_myxdd")]
 position = Vector2(-104, 0)

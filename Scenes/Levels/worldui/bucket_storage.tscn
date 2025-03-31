@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqar7mpcmube6"]
+
+[ext_resource type="PackedScene" uid="uid://brf0ihr5t1sip" path="res://Scenes/Levels/worldui/storage_level.tscn" id="1_nycuj"]
+
+[node name="Bucket" instance=ExtResource("1_nycuj")]
+inventory_name = "bucket"

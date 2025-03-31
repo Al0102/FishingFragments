@@ -2309,7 +2309,7 @@ idle_out_state = NodePath("../State_Rod_Idle_Out")
 script = ExtResource("8_clv6n")
 reel_state = NodePath("../State_Rod_Reel")
 bobber_sink_state = NodePath("../State_Rod_Bobber_Sink")
-chance_per_second = 1.0
+chance_per_second = 0.05
 
 [node name="State_Rod_Reel" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("idle_in_state", "idle_out_state", "reel_game")]
 script = ExtResource("9_xtpic")
@@ -2332,7 +2332,7 @@ metadata/_edit_lock_ = true
 [node name="Sky Back" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.1, 1)
 repeat_size = Vector2(1152, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/Sky Back"]
 texture = ExtResource("2_gaq2v")
@@ -2349,7 +2349,7 @@ tile_set = ExtResource("3_3yl7s")
 [node name="Sky Mid" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(1152, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/Sky Mid"]
 texture = ExtResource("4_cgw4p")
@@ -2357,7 +2357,7 @@ texture = ExtResource("4_cgw4p")
 [node name="Sky Front" type="Parallax2D" parent="BG"]
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1152, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/Sky Front"]
 texture = ExtResource("5_kay8b")
@@ -2412,7 +2412,7 @@ tile_set = ExtResource("3_3yl7s")
 scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(-5, 0)
-repeat_times = 2
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="BG/Water"]
 texture = ExtResource("6_lu3uh")

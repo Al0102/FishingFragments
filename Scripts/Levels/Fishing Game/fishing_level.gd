@@ -6,6 +6,7 @@ extends Level
 
 func enter():
 	super()
+	rod.state_machine.stop()
 	rod.state_machine.start()
 
 func exit():
@@ -20,9 +21,13 @@ func _ready() -> void:
 	enter()
 
 func _process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("escape"):
 		GameManager.PopupClose.emit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_B:
+			GameManager.PopupOpen.emit("world_ui", "Bucket")
 		
 func _on_fish_hooked(fish: FishItem):
 	print("hookedalert")

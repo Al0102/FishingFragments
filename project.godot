@@ -14,15 +14,18 @@ warnings/check_invalid_track_paths=false
 
 [application]
 
-config/name="Magic High Seas"
+config/name="Fishing Fragments"
 run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://Images/logo.png"
 
 [autoload]
 
 GameManager="*res://Scripts/Utility/game_manager.gd"
 ItemManager="*res://Scripts/Items/item_manager.gd"
 Debug="*res://Scripts/Utility/debug.gd"
+InteractingBoat="*res://Scripts/Interactables/interacting_boat.gd"
+InventoryManager="*res://Scripts/Inventory/inventory_manager.gd"
 
 [display]
 

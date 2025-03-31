@@ -9,7 +9,6 @@ func _ready():
 	GameManager.connect("cannot_interact_with_me", _cannot_interact)
 
 func _can_interact(interactable: InteractArea) -> void:
-	print("poop")
 	interacting_with = interactable
 	
 func _cannot_interact() -> void:
