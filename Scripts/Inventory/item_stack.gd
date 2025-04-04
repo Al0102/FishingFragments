@@ -6,6 +6,6 @@ class_name ItemStack
 	set(value):
 		quantity = max(0, value)
 		
-func _init(_item: Item = null, quantity: int = 0):
+func _init(_item: Item = null, _quantity: int = 0):
 	item = _item
-	quantity = quantity
+	quantity = _quantity

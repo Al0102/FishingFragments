@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=8 format=3 uid="uid://cbgdmkoityefj"]
+
+[ext_resource type="Script" path="res://Scripts/Items/pickable_object_data.gd" id="1_0r5i1"]
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="2_wm4bl"]
+[ext_resource type="Script" path="res://Scripts/Items/Fish/fish_data.gd" id="3_tq16f"]
+
+[sub_resource type="Resource" id="Resource_b2544"]
+script = ExtResource("2_wm4bl")
+polygon = PackedVector2Array(-16, 1, -10, 10, -4, 13, 6, 11, 11, 4, 16, 4, 16, -3, 10, -3, 7, -12, 1, -15, -6, -15, -9, -11, -16, -1)
+
+[sub_resource type="Resource" id="Resource_ogn6k"]
+script = ExtResource("1_0r5i1")
+shape_points = SubResource("Resource_b2544")
+scale = Vector2(1.4, 1.4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_312ar"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o3xt"]
+atlas = SubResource("CompressedTexture2D_312ar")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_tq16f")
+strength = 25.0
+rarity = 1
+weight = 1.0
+weight_deviation = 30.0
+id = 5
+name = "flounder"
+texture = SubResource("AtlasTexture_3o3xt")
+pickable_object = SubResource("Resource_ogn6k")

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=8 format=3 uid="uid://bgmyatenkj4y8"]
+
+[ext_resource type="Script" path="res://Scripts/Items/pickable_object_data.gd" id="1_15x5f"]
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="2_rs01m"]
+[ext_resource type="Script" path="res://Scripts/Items/Fish/fish_data.gd" id="3_47n7u"]
+
+[sub_resource type="Resource" id="Resource_g3ibs"]
+script = ExtResource("2_rs01m")
+polygon = PackedVector2Array(-16, -1, -15, 3, 1, 9, 8, 4, 13, 6, 16, 6, 16, -2, 9, -1, -5, -9)
+
+[sub_resource type="Resource" id="Resource_r4lvi"]
+script = ExtResource("1_15x5f")
+shape_points = SubResource("Resource_g3ibs")
+scale = Vector2(1.6, 1.6)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_riadn"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfy5g"]
+atlas = SubResource("CompressedTexture2D_riadn")
+region = Rect2(256, 16, 32, 16)
+
+[resource]
+script = ExtResource("3_47n7u")
+strength = 40.0
+rarity = 85
+weight = 30.0
+weight_deviation = 70.0
+id = 7
+name = "redfish"
+texture = SubResource("AtlasTexture_xfy5g")
+pickable_object = SubResource("Resource_r4lvi")

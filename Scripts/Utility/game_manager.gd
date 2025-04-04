@@ -16,6 +16,7 @@ signal SetPlayerPosition
 signal ChangeLevel
 signal PopupOpen(popup_world: String, popup_level: String)
 signal PopupClose(index: int)
+signal WorldChanged(new_world: String)
 
 # Interactable signals
 signal can_interact_with_me

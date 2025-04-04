@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://cbi4o0c8dyw20"]
+[gd_scene load_steps=10 format=4 uid="uid://cbi4o0c8dyw20"]
 
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="1_2rcfq"]
-[ext_resource type="Script" path="res://Scenes/Levels/worldmenu/start_screen_ui.gd" id="1_pi0pa"]
 [ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Tilesets/sea decor.tres" id="2_46rnx"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="3_6phmu"]
 [ext_resource type="Texture2D" uid="uid://hr3ilh1qhmrr" path="res://Images/SEA BACKGROUND/Front BG.png" id="4_tcsq3"]
 [ext_resource type="Texture2D" uid="uid://bfhjnjvbug0lk" path="res://Images/SEA BACKGROUND/Water BG.png" id="5_nutcw"]
 [ext_resource type="Texture2D" uid="uid://b1wethfj2qdyr" path="res://Images/logo.png" id="6_7w5fx"]
-[ext_resource type="Texture2D" uid="uid://c2fjc76hn6wsk" path="res://Resources/Atlas_Resources/icons.tres" id="7_f3sf2"]
+[ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="7_f3sf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j82na"]
 atlas = ExtResource("7_f3sf2")
@@ -17,15 +16,13 @@ region = Rect2(144, 0, 32, 32)
 atlas = ExtResource("7_f3sf2")
 region = Rect2(144, 32, 32, 32)
 
-[node name="StartScreen" type="Control" node_paths=PackedStringArray("start_button")]
+[node name="StartScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pi0pa")
-start_button = NodePath("MarginContainer/Control/VBoxContainer/Control2/ColorRect/HBoxContainer/Start Button")
 
 [node name="BG" type="Node2D" parent="."]
 z_index = -10

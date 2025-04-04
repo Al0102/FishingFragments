@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=32 format=3 uid="uid://bhujpirrejitn"]
+
+[ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table_item.gd" id="1_jj8v5"]
+[ext_resource type="Resource" uid="uid://bmp72aogswt2v" path="res://Resources/Items/Fish/placeholder_fish.tres" id="2_a442h"]
+[ext_resource type="Resource" uid="uid://cmxxsb4npifi3" path="res://Resources/Items/Fish/swordfish_fish.tres" id="3_g5pet"]
+[ext_resource type="Resource" uid="uid://cda87v66ix7yj" path="res://Resources/Items/Fish/seastar_fish.tres" id="4_c8uqg"]
+[ext_resource type="Resource" uid="uid://blb1t7y1y4ys3" path="res://Resources/Items/Fish/jellyfish_fish.tres" id="5_gp4l7"]
+[ext_resource type="Resource" uid="uid://b7lxx4r4vcnov" path="res://Resources/Items/Fish/sunfish_fish.tres" id="6_ne6pj"]
+[ext_resource type="Resource" uid="uid://dih4to5xh5lah" path="res://Resources/Items/Fish/anchovy_fish.tres" id="7_wbg7e"]
+[ext_resource type="Resource" uid="uid://bgmyatenkj4y8" path="res://Resources/Items/Fish/redfish_fish.tres" id="8_xsnxw"]
+[ext_resource type="Resource" uid="uid://bve7bqcpb4p5c" path="res://Resources/Items/Fish/pompano_fish.tres" id="9_38se1"]
+[ext_resource type="Resource" uid="uid://chvt6honxmrt0" path="res://Resources/Items/Fish/bonefish_fish.tres" id="10_3bu8e"]
+[ext_resource type="Resource" uid="uid://cljnjfymsdi3m" path="res://Resources/Items/Fish/tuna_fish.tres" id="11_dk4s1"]
+[ext_resource type="Resource" uid="uid://bg4bhtuua6onf" path="res://Resources/Items/Fish/cobia_fish.tres" id="12_we852"]
+[ext_resource type="Resource" uid="uid://dn32u5i2367g0" path="res://Resources/Items/Fish/mahimahi_fish.tres" id="13_3uat1"]
+[ext_resource type="Resource" uid="uid://ba2b458tag3mw" path="res://Resources/Items/Fish/pufferfish_fish.tres" id="14_nvuem"]
+[ext_resource type="Resource" uid="uid://hvh5lvpv3l8v" path="res://Resources/Items/Fish/grouper_fish.tres" id="15_d6rm0"]
+[ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table.gd" id="16_i6sw8"]
+
+[sub_resource type="Resource" id="Resource_cvyug"]
+script = ExtResource("1_jj8v5")
+weight = 100.0
+item = ExtResource("2_a442h")
+
+[sub_resource type="Resource" id="Resource_4ripk"]
+script = ExtResource("1_jj8v5")
+weight = 10.0
+item = ExtResource("3_g5pet")
+
+[sub_resource type="Resource" id="Resource_lbfjq"]
+script = ExtResource("1_jj8v5")
+weight = 20.0
+item = ExtResource("4_c8uqg")
+
+[sub_resource type="Resource" id="Resource_7f0h4"]
+script = ExtResource("1_jj8v5")
+weight = 85.0
+item = ExtResource("5_gp4l7")
+
+[sub_resource type="Resource" id="Resource_gxu0r"]
+script = ExtResource("1_jj8v5")
+weight = 100.0
+item = ExtResource("6_ne6pj")
+
+[sub_resource type="Resource" id="Resource_nf0s4"]
+script = ExtResource("1_jj8v5")
+weight = 0.0
+item = ExtResource("7_wbg7e")
+
+[sub_resource type="Resource" id="Resource_dfu1c"]
+script = ExtResource("1_jj8v5")
+weight = 100.0
+item = ExtResource("7_wbg7e")
+
+[sub_resource type="Resource" id="Resource_vhpbv"]
+script = ExtResource("1_jj8v5")
+weight = 85.0
+item = ExtResource("8_xsnxw")
+
+[sub_resource type="Resource" id="Resource_7dcbj"]
+script = ExtResource("1_jj8v5")
+weight = 100.0
+item = ExtResource("9_38se1")
+
+[sub_resource type="Resource" id="Resource_wv6ir"]
+script = ExtResource("1_jj8v5")
+weight = 20.0
+item = ExtResource("10_3bu8e")
+
+[sub_resource type="Resource" id="Resource_pq3lp"]
+script = ExtResource("1_jj8v5")
+weight = 20.0
+item = ExtResource("11_dk4s1")
+
+[sub_resource type="Resource" id="Resource_rh4ak"]
+script = ExtResource("1_jj8v5")
+weight = 85.0
+item = ExtResource("12_we852")
+
+[sub_resource type="Resource" id="Resource_mlika"]
+script = ExtResource("1_jj8v5")
+weight = 20.0
+item = ExtResource("13_3uat1")
+
+[sub_resource type="Resource" id="Resource_fjduy"]
+script = ExtResource("1_jj8v5")
+weight = 85.0
+item = ExtResource("14_nvuem")
+
+[sub_resource type="Resource" id="Resource_p3kpt"]
+script = ExtResource("1_jj8v5")
+weight = 85.0
+item = ExtResource("15_d6rm0")
+
+[resource]
+script = ExtResource("16_i6sw8")
+itemList = Array[ExtResource("1_jj8v5")]([SubResource("Resource_cvyug"), SubResource("Resource_4ripk"), SubResource("Resource_lbfjq"), SubResource("Resource_7f0h4"), SubResource("Resource_gxu0r"), SubResource("Resource_nf0s4"), SubResource("Resource_dfu1c"), SubResource("Resource_vhpbv"), SubResource("Resource_7dcbj"), SubResource("Resource_wv6ir"), SubResource("Resource_pq3lp"), SubResource("Resource_rh4ak"), SubResource("Resource_mlika"), SubResource("Resource_fjduy"), SubResource("Resource_p3kpt")])

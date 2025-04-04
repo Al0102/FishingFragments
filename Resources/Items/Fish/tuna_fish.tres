@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=8 format=3 uid="uid://cljnjfymsdi3m"]
+
+[ext_resource type="Script" path="res://Scripts/Items/pickable_object_data.gd" id="1_r1nf4"]
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="2_ejjj3"]
+[ext_resource type="Script" path="res://Scripts/Items/Fish/fish_data.gd" id="3_s41i5"]
+
+[sub_resource type="Resource" id="Resource_vc4ko"]
+script = ExtResource("2_ejjj3")
+polygon = PackedVector2Array(-2, -8, -22, -8, -32, -1, -32, 3, -22, 10, -8, 8, 2, 12, 6, 12, 11, 5, 16, 5, 18, 10, 25, 15, 31, 14, 27, 1, 32, -16, 26, -16, 15, -5, 6, -7, 10, -16)
+
+[sub_resource type="Resource" id="Resource_n117i"]
+script = ExtResource("1_r1nf4")
+shape_points = SubResource("Resource_vc4ko")
+scale = Vector2(2.4, 2.4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3r31o"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0aib"]
+atlas = SubResource("CompressedTexture2D_3r31o")
+region = Rect2(48, 32, 64, 32)
+
+[resource]
+script = ExtResource("3_s41i5")
+strength = 50.0
+rarity = 20
+weight = 130.0
+weight_deviation = 1370.0
+id = 10
+name = "tuna"
+texture = SubResource("AtlasTexture_m0aib")
+pickable_object = SubResource("Resource_n117i")

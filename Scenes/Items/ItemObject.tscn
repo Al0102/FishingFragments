@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://bso0ki0xnbnyp"]
+
+[ext_resource type="Script" path="res://Scripts/Items/item_object.gd" id="1_rg03f"]
+[ext_resource type="Script" path="res://Scripts/Items/pickable_object_data.gd" id="2_skn0f"]
+[ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="3_23mkv"]
+[ext_resource type="Script" path="res://Scripts/Items/Fish/fish_data.gd" id="4_3kp4i"]
+
+[sub_resource type="Resource" id="Resource_rhrhs"]
+script = ExtResource("3_23mkv")
+polygon = PackedVector2Array(-9, -11, -14, -5, -14, -1, -11, 8, -4, 14, 9, 14, 11, 11, 14, 6, 16, 9, 16, -8, 13, -8, 8, -10, -4, -10, -6, -11)
+
+[sub_resource type="Resource" id="Resource_w6rp5"]
+script = ExtResource("2_skn0f")
+shape_points = SubResource("Resource_rhrhs")
+scale = Vector2(1.4, 1.4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lg8c5"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weys6"]
+atlas = SubResource("CompressedTexture2D_lg8c5")
+region = Rect2(208, 32, 32, 32)
+
+[sub_resource type="Resource" id="Resource_7npog"]
+script = ExtResource("4_3kp4i")
+strength = 25.0
+rarity = 100
+weight = 0.0
+weight_deviation = 5.0
+id = 14
+name = ""
+texture = SubResource("AtlasTexture_weys6")
+pickable_object = SubResource("Resource_w6rp5")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_en0ia"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhdmj"]
+atlas = SubResource("CompressedTexture2D_en0ia")
+region = Rect2(208, 32, 32, 32)
+
+[node name="ItemObject" type="RigidBody2D"]
+script = ExtResource("1_rg03f")
+data = SubResource("Resource_7npog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_rhdmj")

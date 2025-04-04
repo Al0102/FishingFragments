@@ -17,10 +17,8 @@ func _on_interact_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.can_interact_with_me.emit(self)
 		print("player in")
-		showLabel()
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-		GameManager.cannot_interact_with_me.emit()
+		GameManager.cannot_interact_with_me.emit(self)
 		print("player out")
-		hideLabel()

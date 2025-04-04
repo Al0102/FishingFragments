@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhgggqdng8uk6"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/worldui/Fishing Game/control_hints.gd" id="1_pg2kp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_88ask"]
+load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxaxb"]
+atlas = SubResource("CompressedTexture2D_88ask")
+region = Rect2(44, 195, 50, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_634vt"]
+load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ous4l"]
+atlas = SubResource("CompressedTexture2D_634vt")
+region = Rect2(290, 137, 14, 14)
+
+[node name="ControlsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pg2kp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+
+[node name="Icon" type="Control" parent="Return"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="Return/Icon"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_gxaxb")
+expand_mode = 3
+
+[node name="ControlIcon" type="TextureRect" parent="Return/Icon"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 40.0
+offset_bottom = 16.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_ous4l")
+expand_mode = 3

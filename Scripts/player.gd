@@ -42,5 +42,4 @@ func state_update():
 			if !anim_player.is_playing():
 				anim_player.play("idle")
 		State.WALK:
-			if !anim_player.is_playing():
-				anim_player.play("walk")
+			anim_player.play("walk")

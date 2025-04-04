@@ -33,4 +33,4 @@ func input(event: InputEvent) -> State:
 	
 func roll_is_fish_hooked() -> bool:
 	var x = randf()
-	return x <= chance_per_second
+	return x < chance_per_second

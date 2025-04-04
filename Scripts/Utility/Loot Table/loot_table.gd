@@ -8,6 +8,7 @@ func random_item() -> Item:
 	var cumululative_weights = []
 	
 	for item in itemList:
+		print(item.item.get("rarity"))
 		total_weight += item.weight
 		cumululative_weights.append([item.item,total_weight])
 	

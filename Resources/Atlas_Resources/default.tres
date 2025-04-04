@@ -1,7 +1,8 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dd77t3j3k76ch"]
 
-[ext_resource type="Texture2D" uid="uid://b0lgqcf8xpqqm" path="res://Images/Fishing Minigame/Fish shadows.png" id="1_ng6mq"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ge0eh"]
+load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
 
 [resource]
-atlas = ExtResource("1_ng6mq")
+atlas = SubResource("CompressedTexture2D_ge0eh")
 region = Rect2(0, 0, 48, 32)

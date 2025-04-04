@@ -13,7 +13,8 @@ var portals = {
 # interactable.name: ui_screen.name
 var ui_levels = {
 	"cupboard": "Cupboard",
-	"game_fishing": "Fishing"
+	"bucket_storage": "Bucket",
+	"game_fishing": "Fishing",
 }
 
 func _ready():

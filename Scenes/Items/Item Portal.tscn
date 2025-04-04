@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bibn7hyn70334"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/item_portal.gd" id="1_xfwcs"]
+
+[node name="ItemPortal" type="Area2D"]
+script = ExtResource("1_xfwcs")

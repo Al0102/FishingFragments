@@ -23,16 +23,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("escape"):
 		GameManager.PopupClose.emit()
+	elif Input.is_action_just_pressed("bucket_open"):
+		GameManager.PopupOpen.emit("world_ui", "Bucket")
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_B:
-			GameManager.PopupOpen.emit("world_ui", "Bucket")
 		
-func _on_fish_hooked(fish: FishItem):
+func _on_fish_hooked(fish: ItemObject):
 	print("hookedalert")
 	actionUI.play_alert()
 
-func _on_fish_captured(fish: FishItem):
+func _on_fish_captured(fish: ItemObject):
 	if fish:
 		actionUI.play_captured(fish.data.texture)
+		InventoryManager.add_to_inventory("bucket", rod.hooked_fish.data, 1)
+		

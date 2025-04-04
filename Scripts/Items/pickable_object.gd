@@ -7,8 +7,22 @@ signal clicked
 var held = false
 const MOUSE_DRAG_FORCE = 115
 
-func _ready():
+func _init():
+	add_to_group("pickable")
 	input_event.connect(_on_input_event)
+	held = false
+	
+	input_pickable = true
+	
+	set_collision_mask_value(3, true)
+	var pm = PhysicsMaterial.new()
+	pm.bounce = 0.4
+	physics_material_override = pm
+
+func _ready():
+	add_to_group("pickable")
+	input_event.connect(_on_input_event)
+	held = false
 	
 func _on_input_event(viewport, event, shape_idx):
 	print("inputevent")
@@ -33,7 +47,8 @@ func _physics_process(delta: float) -> void:
 func pickup():
 	if held:
 		return
-	# container collisions flase but window boarder still true
+	z_index = 1000
+	# container collisions false but window border still true
 	set_collision_mask_value(1,false)
 	set_collision_layer_value(1, false)
 	# force applied to object too weak to overcome gravity, so set to 0 while held
@@ -42,10 +57,12 @@ func pickup():
 	
 func drop(impulse=Vector2.ZERO):
 	if held:
+		z_index = 1
 		set_collision_mask_value(1,true)
 		set_collision_layer_value(1, true)
 		gravity_scale = 1
 		
 		# Throwing the object
-		apply_central_impulse(impulse.normalized()*MOUSE_DRAG_FORCE)
+		apply_central_force(impulse.normalized()*MOUSE_DRAG_FORCE)
 		held = false
+		

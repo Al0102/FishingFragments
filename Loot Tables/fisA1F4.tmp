@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=13 format=3 uid="uid://bhujpirrejitn"]
+
+[ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table_item.gd" id="1_jidt4"]
+[ext_resource type="Script" path="res://Scripts/Utility/Loot Table/loot_table.gd" id="2_5gw7j"]
+[ext_resource type="Resource" uid="uid://bmp72aogswt2v" path="res://Resources/Items/Fish/placeholder_fish.tres" id="2_wa1ba"]
+[ext_resource type="Resource" uid="uid://cmxxsb4npifi3" path="res://Resources/Items/Fish/swordfish_fish.tres" id="3_k7tic"]
+[ext_resource type="Resource" uid="uid://cda87v66ix7yj" path="res://Resources/Items/Fish/seastar_fish.tres" id="4_j8shb"]
+[ext_resource type="Resource" uid="uid://blb1t7y1y4ys3" path="res://Resources/Items/Fish/jellyfish_fish.tres" id="5_nc7k0"]
+[ext_resource type="Resource" uid="uid://b7lxx4r4vcnov" path="res://Resources/Items/Fish/sunfish_fish.tres" id="6_jvawk"]
+
+[sub_resource type="Resource" id="Resource_a8jf8"]
+script = ExtResource("1_jidt4")
+item = ExtResource("2_wa1ba")
+weight = 0.0
+
+[sub_resource type="Resource" id="Resource_bn00b"]
+script = ExtResource("1_jidt4")
+item = ExtResource("3_k7tic")
+weight = 1.0
+
+[sub_resource type="Resource" id="Resource_4jvgn"]
+script = ExtResource("1_jidt4")
+item = ExtResource("4_j8shb")
+weight = 3.0
+
+[sub_resource type="Resource" id="Resource_quyak"]
+script = ExtResource("1_jidt4")
+item = ExtResource("5_nc7k0")
+weight = 4.0
+
+[sub_resource type="Resource" id="Resource_yowrn"]
+script = ExtResource("1_jidt4")
+item = ExtResource("6_jvawk")
+weight = 7.0
+
+[resource]
+script = ExtResource("2_5gw7j")
+itemList = Array[ExtResource("1_jidt4")]([SubResource("Resource_a8jf8"), SubResource("Resource_bn00b"), SubResource("Resource_4jvgn"), SubResource("Resource_quyak"), SubResource("Resource_yowrn")])
