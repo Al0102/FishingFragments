@@ -41,6 +41,7 @@ func drop_item(item: Item, amount: int = 1) -> ItemStack:
 
 func clear():
 	items.clear()
+	items_dict.clear()
 	update()
 
 func clear_and_get() -> Array[ItemStack]:

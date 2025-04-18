@@ -14,7 +14,7 @@ load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.cte
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ous4l"]
 atlas = SubResource("CompressedTexture2D_634vt")
-region = Rect2(290, 137, 14, 14)
+region = Rect2(324, 222, 21, 14)
 
 [node name="ControlsUI" type="Control"]
 layout_mode = 3
@@ -58,12 +58,13 @@ expand_mode = 3
 [node name="ControlIcon" type="TextureRect" parent="Return/Icon"]
 z_index = 1
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
+anchor_left = -0.5
 anchor_top = 1.0
+anchor_right = -0.5
 anchor_bottom = 1.0
-offset_left = 16.0
 offset_top = -8.0
-offset_right = 40.0
+offset_right = 36.0
 offset_bottom = 16.0
 grow_vertical = 0
 texture = SubResource("AtlasTexture_ous4l")

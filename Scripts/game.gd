@@ -10,6 +10,8 @@ class_name Game
 @export var level_StartScreen: Level
 @export var level_Bucket: Level
 @export var level_PlayerBag: Level
+@export var level_Book: Level
+@export var level_DeleteSave: Level
 
 @onready var levels: Dictionary = {
 	"Outside":level_Outside,
@@ -18,7 +20,9 @@ class_name Game
 	"Fishing": level_Fishing,
 	"StartScreen": level_StartScreen,
 	"Bucket": level_Bucket,
-	"PlayerBag": level_PlayerBag}
+	"PlayerBag": level_PlayerBag,
+	"Book": level_Book,
+	"DeleteSave": level_DeleteSave,}
 
 
 @export_group("worlds")
@@ -37,11 +41,13 @@ class_name Game
 			"Fishing",
 			"Bucket",
 			"PlayerBag",
+			"Book",
 		]},
 	"world_menu": {
 		"node": world_menu,
 		"levels": [
-			"StartScreen"
+			"StartScreen",
+			"DeleteSave"
 		]},
 }
 
@@ -77,6 +83,7 @@ func _ready() -> void:
 	GameManager.connect("ChangeLevel", _on_change_level)
 	GameManager.connect("ChangeWorld", _on_change_world)
 	GameManager.connect("SetPlayerPosition", _on_set_player_position)
+	GameManager.connect("ReloadGame", _on_reload_game)
 	
 	level_StartScreen.game_start.connect(reset_to_start)
 	
@@ -98,6 +105,8 @@ func reset_to_start():
 	switch_world("world_2D", "Outside")
 	InteractingBoat.interact_portal("player_spawn")
 
+func _on_reload_game():
+	get_tree().reload_current_scene()
 
 func switch_level(new_level: String):
 	levels[current_level].exit()
@@ -118,7 +127,7 @@ func _on_change_level(new_level: String) -> void:
 func _on_change_world(new_world: String, new_level: String) -> void:
 	switch_world(new_world, new_level)
 
-func _on_popup_open(popup_world: String, popup_level: String) -> void:
+func _on_popup_open(popup_world: String, popup_level: String, hide_previous: bool=true) -> void:
 	assert((
 			popup_world in worlds and (
 			popup_level in worlds[popup_world]["levels"])),
@@ -132,7 +141,7 @@ func _on_popup_open(popup_world: String, popup_level: String) -> void:
 	if len(popups) > 1 :
 		# Pause and destroy lower
 		GameManager.pause_node(popups[-2]["world"])
-		GameManager.pause_node(popups[-2]["level"])
+		GameManager.pause_node(popups[-2]["level"], hide_previous)
 		
 		if popups[-1]["world"] != popups[-2]["world"]:
 			add_child(popups[-1]["world"])
@@ -142,7 +151,7 @@ func _on_popup_open(popup_world: String, popup_level: String) -> void:
 			GameManager.WorldChanged.emit(popup_world)
 	else:
 		# Pause and destroy lower
-		GameManager.pause_node(levels[current_level])
+		GameManager.pause_node(levels[current_level], hide_previous)
 		GameManager.pause_node(worlds[current_world]["node"])
 		
 		if popups[-1]["world"] != worlds[current_world]["node"]:

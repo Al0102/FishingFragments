@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://fcscchr5d0mk"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/pause_screen.gd" id="1_arf0l"]
+[ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="2_um0ib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5kqs"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70qgt"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3y4bo"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqbnn"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0vt2"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_106s2"]
+atlas = ExtResource("2_um0ib")
+region = Rect2(144, 416, 32, 32)
+
+[node name="PauseScreen" type="Control" node_paths=PackedStringArray("resume_button", "home_button", "quit_button")]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_arf0l")
+resume_button = NodePath("Menu/Resume")
+home_button = NodePath("Menu/Home")
+quit_button = NodePath("Menu/Quit")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.356863, 0.113725, 0, 0.0980392)
+
+[node name="Menu" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Resume" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_a5kqs")
+texture_pressed = SubResource("AtlasTexture_70qgt")
+
+[node name="Home" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_3y4bo")
+texture_pressed = SubResource("AtlasTexture_cqbnn")
+
+[node name="Quit" type="TextureButton" parent="Menu"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_d0vt2")
+texture_pressed = SubResource("AtlasTexture_106s2")

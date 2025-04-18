@@ -10,8 +10,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("bag_open") or (
-		Input.is_action_just_pressed("escape")):
+		Input.is_action_just_pressed("cancel")):
 		InventoryManager.PlayerBagClose()
+
+	if Input.is_action_just_pressed("book_open"):
+		GameManager.PopupOpen.emit("world_ui", "Book")
 
 func _on_bag_open(_inventory_name):
 	item_portals[0].inventory_to = _inventory_name

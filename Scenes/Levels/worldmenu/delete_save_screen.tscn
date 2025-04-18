@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://djeq83vw3kc8g"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/delete_save_screen.gd" id="1_d6ms0"]
+[ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="2_7wcq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e47gn"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(144, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43yqu"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(144, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcnm4"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(144, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwfsd"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(144, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acw7h"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(96, 288, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrrwt"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(96, 240, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hjy5"]
+atlas = ExtResource("2_7wcq4")
+region = Rect2(96, 336, 48, 48)
+
+[node name="DeleteSave" type="Node2D" node_paths=PackedStringArray("confirm_button", "reject_button")]
+z_index = 4096
+script = ExtResource("1_d6ms0")
+confirm_button = NodePath("Delete Save/Box/MarginContainer/Inside/Confirm/Confirm Button")
+reject_button = NodePath("Delete Save/Box/MarginContainer/Inside/Confirm/Reject Button")
+
+[node name="Delete Save" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="Control" parent="Delete Save"]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Delete Save/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26, 0.11986, 0.00519999, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Delete Save/Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Inside" type="ColorRect" parent="Delete Save/Box/MarginContainer"]
+layout_mode = 2
+color = Color(0.71, 0.489663, 0.0142, 1)
+
+[node name="Confirm" type="HBoxContainer" parent="Delete Save/Box/MarginContainer/Inside"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.65
+anchor_right = 1.0
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Confirm Button" type="TextureButton" parent="Delete Save/Box/MarginContainer/Inside/Confirm"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture_normal = SubResource("AtlasTexture_e47gn")
+texture_pressed = SubResource("AtlasTexture_43yqu")
+
+[node name="Reject Button" type="TextureButton" parent="Delete Save/Box/MarginContainer/Inside/Confirm"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_hcnm4")
+texture_pressed = SubResource("AtlasTexture_iwfsd")
+
+[node name="Hint" type="HBoxContainer" parent="Delete Save/Box/MarginContainer/Inside"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="save" type="TextureRect" parent="Delete Save/Box/MarginContainer/Inside/Hint"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_acw7h")
+
+[node name="arrow" type="TextureRect" parent="Delete Save/Box/MarginContainer/Inside/Hint"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vrrwt")
+
+[node name="trash" type="TextureRect" parent="Delete Save/Box/MarginContainer/Inside/Hint"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6hjy5")

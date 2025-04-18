@@ -44,5 +44,5 @@ func input(event: InputEvent) -> State:
 # TODO
 func hook_fish():
 	rod.hooked_fish = ItemManager.new_fish(loot_table.random_item().name)
-	if Debug.debug_on: print("hooked")
+	print("hooked")
 	

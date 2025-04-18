@@ -11,4 +11,4 @@ signal fish_captured(fish_item: ItemObject)
 var hooked_fish: ItemObject = null
 
 func _ready() -> void:
-	if Debug.debug_on: print("Rod init")
+	print("Rod init")

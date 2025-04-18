@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cedftdbpphn"]
+[gd_scene load_steps=34 format=3 uid="uid://cedftdbpphn"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_s1xxa"]
 [ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="1_xlduq"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bcbcfj2240lhw" path="res://Scenes/Levels/worldui/player_bag_storage.tscn" id="12_shkgq"]
 [ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="12_u0m8b"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="13_h5c4y"]
+[ext_resource type="PackedScene" uid="uid://bdk6ormkapg46" path="res://Scenes/Levels/worldui/book_screen.tscn" id="18_ia83x"]
+[ext_resource type="PackedScene" uid="uid://djeq83vw3kc8g" path="res://Scenes/Levels/worldmenu/delete_save_screen.tscn" id="20_ujism"]
+[ext_resource type="Script" path="res://Scripts/Utility/pause_manager.gd" id="21_j5ae3"]
+[ext_resource type="PackedScene" uid="uid://fcscchr5d0mk" path="res://Scenes/Levels/worldmenu/pause_screen.tscn" id="22_aatjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr6w2"]
 atlas = ExtResource("11_xuw1s")
@@ -1109,7 +1113,7 @@ sources/1 = SubResource("TileSetAtlasSource_n0ed1")
 sources/2 = SubResource("TileSetAtlasSource_sctkp")
 sources/3 = SubResource("TileSetAtlasSource_jlkvq")
 
-[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "world_2D", "world_ui", "world_menu", "player")]
+[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "level_Book", "level_DeleteSave", "world_2D", "world_ui", "world_menu", "player")]
 process_mode = 3
 script = ExtResource("1_s1xxa")
 level_Outside = NodePath("world_2D/Outside")
@@ -1119,12 +1123,15 @@ level_Fishing = NodePath("world_ui/Fishing")
 level_StartScreen = NodePath("world_menu/StartScreen")
 level_Bucket = NodePath("world_ui/Bucket")
 level_PlayerBag = NodePath("world_ui/PlayerBag")
+level_Book = NodePath("world_ui/Book")
+level_DeleteSave = NodePath("world_menu/DeleteSave")
 world_2D = NodePath("world_2D")
 world_ui = NodePath("world_ui")
 world_menu = NodePath("world_menu")
 player = NodePath("world_2D/Player")
 
 [node name="world_2D" type="Node" parent="."]
+process_mode = 1
 
 [node name="Inside" parent="world_2D" node_paths=PackedStringArray("interactables", "camera") instance=ExtResource("3_1y6ot")]
 position = Vector2(-440, -64)
@@ -1327,6 +1334,7 @@ tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 18, 0, 11, 0, 0, 0, 1, 0
 tile_set = SubResource("TileSet_yrtgt")
 
 [node name="world_ui" type="Node" parent="."]
+process_mode = 1
 
 [node name="Fishing" parent="world_ui" instance=ExtResource("10_bu8ed")]
 
@@ -1337,10 +1345,24 @@ spawn_x_range = Vector2(0, 0)
 [node name="PlayerBag" parent="world_ui" instance=ExtResource("12_shkgq")]
 position = Vector2(-1683, -652)
 
+[node name="Book" parent="world_ui" instance=ExtResource("18_ia83x")]
+
 [node name="world_menu" type="Node" parent="."]
+process_mode = 1
 
 [node name="StartScreen" parent="world_menu" instance=ExtResource("12_esj6q")]
 position = Vector2(5, 649)
+
+[node name="DeleteSave" parent="world_menu" instance=ExtResource("20_ujism")]
+position = Vector2(5, 649)
+
+[node name="Pause" type="CanvasLayer" parent="." node_paths=PackedStringArray("pause_screen")]
+process_priority = 1
+layer = 2
+script = ExtResource("21_j5ae3")
+pause_screen = NodePath("PauseScreen")
+
+[node name="PauseScreen" parent="Pause" instance=ExtResource("22_aatjb")]
 
 [editable path="world_2D/Inside"]
 [editable path="world_2D/Inside/interactables/door_outside"]

@@ -16,8 +16,10 @@ script = ExtResource("1_y0b7a")
 camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="Window borders" type="StaticBody2D" parent="."]
+position = Vector2(576, 324)
 scale = Vector2(4.01, 4.01)
 collision_layer = 5
 

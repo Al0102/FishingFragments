@@ -31,6 +31,7 @@ func _ready():
 
 func enter():
 	super()
+	inventory = InventoryManager._load(inventory_name)
 	if is_spawned:
 		return
 	is_spawned = true
@@ -65,7 +66,7 @@ func _on_item_added(_inventory_name, item: Item):
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("escape"):
+	if Input.is_action_just_pressed("cancel"):
 		GameManager.PopupClose.emit()
 	if Input.is_action_just_pressed("interact"):
 		inventory.add_item(ItemManager.get_fish_data("placeholder"), 3)

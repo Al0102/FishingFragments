@@ -12,7 +12,7 @@ func enter():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("bucket_open") or (
-		Input.is_action_just_pressed("escape")):
+		Input.is_action_just_pressed("cancel")):
 		GameManager.PopupClose.emit()
 	if Input.is_action_just_pressed("bag_open"):
 		InventoryManager.PlayerBagOpen(inventory_name)
