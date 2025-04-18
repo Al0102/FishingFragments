@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Inventory/item_portal.gd" id="3_y14bd"]
 [ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="4_0pogw"]
 [ext_resource type="Texture2D" uid="uid://cnv7idyfbhhdo" path="res://Images/Storage Levels/Backpack.png" id="4_i7nlv"]
-[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="5_amkbi"]
+[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="5_amkbi"]
 [ext_resource type="PackedScene" uid="uid://dhgggqdng8uk6" path="res://Scenes/Utility/controls_ui.tscn" id="6_kst2m"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="6_vh20w"]
 

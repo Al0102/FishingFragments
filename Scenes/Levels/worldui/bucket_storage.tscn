@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Inventory/item_portal.gd" id="3_c25e8"]
 [ext_resource type="Texture2D" uid="uid://ru5t703fqb3d" path="res://Images/Fishing Minigame/icons.png" id="4_j3n13"]
 [ext_resource type="PackedScene" uid="uid://dhgggqdng8uk6" path="res://Scenes/Utility/controls_ui.tscn" id="6_l3774"]
-[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="8_hmsvx"]
+[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="8_hmsvx"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="9_cwxx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uj6s"]
@@ -1784,8 +1784,8 @@ texture = ExtResource("3_815q2")
 position = Vector2(576, 324)
 
 [node name="down" type="Area2D" parent="Gravity" index="0"]
-gravity_space_override = 4
-gravity = 12.0
+gravity_space_override = 3
+gravity = 8.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gravity/down" index="0"]
 position = Vector2(-4, -240)

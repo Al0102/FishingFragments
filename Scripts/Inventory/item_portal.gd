@@ -7,6 +7,8 @@ signal item_teleported(item: ItemObject)
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	set_collision_mask_value(1,false)
+	set_collision_mask_value(GameManager.MASK_ITEM_PORTAL,true)
 
 func _on_body_entered(body: Node2D):
 	if body is ItemObject:

@@ -39,6 +39,9 @@ func enter():
 	#for node in get_tree().get_nodes_in_group("pickable"):
 
 func exit():
+	if held_object:
+		held_object.drop(Input.get_last_mouse_velocity())
+		held_object = null
 	InventoryManager._save(inventory_name, inventory)
 	#for object in spawned_objects:
 		#object.queue_free()
@@ -82,4 +85,11 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if held_object and !event.is_pressed():
 			held_object.drop(Input.get_last_mouse_velocity())
+			
+			held_object.set_collision_layer_value(GameManager.MASK_ITEM_PORTAL,true)
+			await get_tree().create_timer(.01).timeout
+			if held_object:
+				held_object.set_collision_layer_value(GameManager.MASK_ITEM_PORTAL,false)
+			
 			held_object = null
+			

@@ -2,7 +2,7 @@ extends Level
 
 @export var interactables: Node2D
 
-var interacting_with: Array[InteractArea]
+var interacting_with: Array[InteractArea] = []
 
 func _ready():
 	GameManager.can_interact_with_me.connect( _can_interact)
@@ -27,10 +27,10 @@ func _process(delta: float) -> void:
 		InventoryManager.PlayerBagOpen()
 	
 	if Input.is_action_just_pressed("interact"):
-		if interacting_with == null:
+		if interacting_with.is_empty():
 			print("null")
 			return
-		print("interact:"+interacting_with[-1].name)
+		print("interact:"+str(interacting_with))
 		if interacting_with[-1].TYPE == "portal":
 			interactables.interact_portal(interacting_with[-1].name)
 		elif interacting_with[-1].TYPE == "ui":

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://cbi4o0c8dyw20"]
 
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="1_2rcfq"]
-[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Tilesets/sea decor.tres" id="2_46rnx"]
+[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Resources/Tilesets/sea decor.tres" id="2_46rnx"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="3_6phmu"]
 [ext_resource type="Texture2D" uid="uid://hr3ilh1qhmrr" path="res://Images/SEA BACKGROUND/Front BG.png" id="4_tcsq3"]
 [ext_resource type="Texture2D" uid="uid://bfhjnjvbug0lk" path="res://Images/SEA BACKGROUND/Water BG.png" id="5_nutcw"]

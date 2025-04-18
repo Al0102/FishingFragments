@@ -1,7 +1,7 @@
 extends Item
 class_name FishData
 
-enum RARITY {DEFAULT,COMMON = 100, UNCOMMON = 85, RARE=20, LEGENDARY=10, MYTHICAL=1}
+enum RARITY {DEFAULT,COMMON = 100, UNCOMMON = 60, RARE=10, LEGENDARY=5, MYTHICAL=1}
 
 @export_range(0.0,100.0, 0.5,"or_greater")
 var strength: float = 25

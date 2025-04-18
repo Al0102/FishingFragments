@@ -11,7 +11,7 @@ polygon = PackedVector2Array(-16, 1, -10, 10, -4, 13, 6, 11, 11, 4, 16, 4, 16, -
 [sub_resource type="Resource" id="Resource_ogn6k"]
 script = ExtResource("1_0r5i1")
 shape_points = SubResource("Resource_b2544")
-scale = Vector2(1.4, 1.4)
+scale = Vector2(4, 4)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_312ar"]
 load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"
@@ -23,7 +23,7 @@ region = Rect2(224, 0, 32, 32)
 [resource]
 script = ExtResource("3_tq16f")
 strength = 25.0
-rarity = 20
+rarity = 60
 weight = 1.0
 weight_deviation = 30.0
 id = 5

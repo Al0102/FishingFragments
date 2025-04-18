@@ -11,7 +11,7 @@ polygon = PackedVector2Array(-14, 8, 0, 10, 1, 17, 15, 9, 15, -9, 4, -16, 1, -16
 [sub_resource type="Resource" id="Resource_4385s"]
 script = ExtResource("1_41tyh")
 shape_points = SubResource("Resource_3fudx")
-scale = Vector2(2, 2)
+scale = Vector2(6, 6)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjslo"]
 load_path = "res://.godot/imported/Fish shadows.png-d331fe184a5703e9ddbbbf279aae3479.ctex"

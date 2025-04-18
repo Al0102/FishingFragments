@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Levels/start_screen.gd" id="1_5hfo2"]
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="2_46efr"]
-[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Tilesets/sea decor.tres" id="3_lhehy"]
+[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Resources/Tilesets/sea decor.tres" id="3_lhehy"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="4_a555s"]
 [ext_resource type="Texture2D" uid="uid://hr3ilh1qhmrr" path="res://Images/SEA BACKGROUND/Front BG.png" id="5_b0his"]
 [ext_resource type="Texture2D" uid="uid://bfhjnjvbug0lk" path="res://Images/SEA BACKGROUND/Water BG.png" id="6_jow7u"]

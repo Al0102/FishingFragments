@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_rod.gd" id="2_fmak1"]
 [ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="2_gaq2v"]
 [ext_resource type="Texture2D" uid="uid://cv7hunds1px5o" path="res://Images/Fishing Minigame/bobber.png" id="3_3hv1q"]
-[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Tilesets/sea decor.tres" id="3_3yl7s"]
+[ext_resource type="TileSet" uid="uid://dwp74jolmhi5m" path="res://Resources/Tilesets/sea decor.tres" id="3_3yl7s"]
 [ext_resource type="Texture2D" uid="uid://bo0jouq2ofny2" path="res://Images/SEA BACKGROUND/Mid BG.png" id="4_cgw4p"]
 [ext_resource type="Texture2D" uid="uid://hr3ilh1qhmrr" path="res://Images/SEA BACKGROUND/Front BG.png" id="5_kay8b"]
 [ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/rod_state_machine.gd" id="5_utq5l"]
@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/Utility/State machine/FishingGameRod/bobber_sink.gd" id="10_o2dvr"]
 [ext_resource type="Resource" uid="uid://bhujpirrejitn" path="res://Loot Tables/fish_loot_table.tres" id="11_xojxr"]
 [ext_resource type="PackedScene" uid="uid://b6phcxcaqo5ns" path="res://Scenes/Levels/worldui/Fishing Game/reel_game.tscn" id="17_1yl44"]
-[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="18_aqrd4"]
+[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="18_aqrd4"]
 [ext_resource type="PackedScene" uid="uid://dhgggqdng8uk6" path="res://Scenes/Utility/controls_ui.tscn" id="18_vvx1f"]
 [ext_resource type="Texture2D" uid="uid://bffykbgyqodnx" path="res://Images/Keys.png" id="19_5e1c2"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="20_44unl"]
@@ -2334,7 +2334,7 @@ idle_out_state = NodePath("../State_Rod_Idle_Out")
 script = ExtResource("8_clv6n")
 reel_state = NodePath("../State_Rod_Reel")
 bobber_sink_state = NodePath("../State_Rod_Bobber_Sink")
-chance_per_second = 1.0
+chance_per_second = 0.831
 
 [node name="State_Rod_Reel" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("idle_in_state", "idle_out_state", "reel_game")]
 script = ExtResource("9_xtpic")

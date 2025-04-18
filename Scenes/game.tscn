@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cwfk75spsv157" path="res://Scenes/Levels/world2d/inside.tscn" id="3_1y6ot"]
 [ext_resource type="Script" path="res://Scripts/Levels/world_2D_boat.gd" id="3_hsvns"]
 [ext_resource type="Script" path="res://Scripts/Interactables/interacting_boat.gd" id="6_hbabu"]
+[ext_resource type="PackedScene" uid="uid://gpgtoihdo606" path="res://Scenes/Levels/world2d/outside_cabin.tscn" id="6_q885d"]
 [ext_resource type="PackedScene" uid="uid://bbo1317tc3udw" path="res://Scenes/Levels/world2d/outside.tscn" id="7_o1mud"]
-[ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="7_qpiww"]
 [ext_resource type="Script" path="res://Scripts/Interactables/portal_destination.gd" id="9_atyfd"]
 [ext_resource type="PackedScene" uid="uid://h5bny70g3ojw" path="res://Scenes/Interactables/portal_destination.tscn" id="9_eu83q"]
 [ext_resource type="Script" path="res://Scenes/Levels/worldui/Fishing Game/control_hints.gd" id="10_3h87g"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ctxl4wiakhduq" path="res://Scenes/Levels/worldmenu/start_screen.tscn" id="12_esj6q"]
 [ext_resource type="PackedScene" uid="uid://bqar7mpcmube6" path="res://Scenes/Levels/worldui/bucket_storage.tscn" id="12_mo1xd"]
 [ext_resource type="PackedScene" uid="uid://bcbcfj2240lhw" path="res://Scenes/Levels/worldui/player_bag_storage.tscn" id="12_shkgq"]
-[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="12_u0m8b"]
+[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="12_u0m8b"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="13_h5c4y"]
 [ext_resource type="PackedScene" uid="uid://bdk6ormkapg46" path="res://Scenes/Levels/worldui/book_screen.tscn" id="18_ia83x"]
 [ext_resource type="PackedScene" uid="uid://djeq83vw3kc8g" path="res://Scenes/Levels/worldmenu/delete_save_screen.tscn" id="20_ujism"]
@@ -1113,10 +1113,11 @@ sources/1 = SubResource("TileSetAtlasSource_n0ed1")
 sources/2 = SubResource("TileSetAtlasSource_sctkp")
 sources/3 = SubResource("TileSetAtlasSource_jlkvq")
 
-[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "level_Book", "level_DeleteSave", "world_2D", "world_ui", "world_menu", "player")]
+[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_OutsideCabin", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "level_Book", "level_DeleteSave", "world_2D", "world_ui", "world_menu", "player")]
 process_mode = 3
 script = ExtResource("1_s1xxa")
 level_Outside = NodePath("world_2D/Outside")
+level_OutsideCabin = NodePath("world_2D/OutsideCabin")
 level_Inside = NodePath("world_2D/Inside")
 level_Storage = NodePath("world_ui/PlayerBag")
 level_Fishing = NodePath("world_ui/Fishing")
@@ -1142,18 +1143,8 @@ camera = NodePath("../Player/Camera2D")
 [node name="interactables" parent="world_2D/Inside" index="1"]
 script = ExtResource("6_hbabu")
 
-[node name="door_outside" parent="world_2D/Inside/interactables" index="0" node_paths=PackedStringArray("destination")]
-script = ExtResource("7_qpiww")
-destination = NodePath("../../../Portals/door_outside")
-
-[node name="door_storage" parent="world_2D/Inside/interactables" index="1"]
-script = ExtResource("7_qpiww")
-
-[node name="door_kitchen" parent="world_2D/Inside/interactables" index="2"]
-script = ExtResource("7_qpiww")
-
-[node name="door_bedroom" parent="world_2D/Inside/interactables" index="3"]
-script = ExtResource("7_qpiww")
+[node name="ladder_cabin" parent="world_2D/Inside/interactables" index="0" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/ladder_cabin")
 
 [node name="Parallax2D" parent="world_2D/Inside" index="2"]
 scroll_offset = Vector2(696, 132)
@@ -1166,11 +1157,18 @@ scale = Vector2(71.75, 40.75)
 [node name="Outside" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("7_o1mud")]
 camera = NodePath("../Player/Camera2D")
 
-[node name="door_inside" parent="world_2D/Outside/interactables" index="0" node_paths=PackedStringArray("destination")]
-destination = NodePath("../../../Portals/door_inside")
+[node name="door_outside_cabin" parent="world_2D/Outside/interactables" index="0" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_outside_cabin")
 
 [node name="Node2D" parent="world_2D/Outside" index="3"]
 position = Vector2(200, -16)
+
+[node name="OutsideCabin" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("6_q885d")]
+position = Vector2(0, -145)
+camera = NodePath("../Player/Camera2D")
+
+[node name="door_inside" parent="world_2D/OutsideCabin/interactables" index="0" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_inside")
 
 [node name="Player" parent="world_2D" instance=ExtResource("1_xlduq")]
 z_index = 2
@@ -1185,8 +1183,14 @@ zoom = Vector2(6, 6)
 [node name="door_inside" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
 position = Vector2(-208, 0)
 
+[node name="door_outside_cabin" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(-30, -161)
+
 [node name="door_outside" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
-position = Vector2(-53, -8)
+position = Vector2(-53, -5)
+
+[node name="ladder_cabin" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(0, -161)
 
 [node name="player_spawn" type="Node2D" parent="world_2D/Portals" groups=["portals"]]
 position = Vector2(-104, -11)
@@ -1365,13 +1369,16 @@ pause_screen = NodePath("PauseScreen")
 [node name="PauseScreen" parent="Pause" instance=ExtResource("22_aatjb")]
 
 [editable path="world_2D/Inside"]
-[editable path="world_2D/Inside/interactables/door_outside"]
+[editable path="world_2D/Inside/interactables/ladder_cabin"]
 [editable path="world_2D/Inside/interactables/door_storage"]
 [editable path="world_2D/Inside/interactables/door_kitchen"]
 [editable path="world_2D/Inside/interactables/door_bedroom"]
 [editable path="world_2D/Outside"]
-[editable path="world_2D/Outside/interactables/door_inside"]
+[editable path="world_2D/Outside/interactables/door_outside_cabin"]
 [editable path="world_2D/Outside/interactables/game_fishing"]
 [editable path="world_2D/Outside/interactables/bucket_storage"]
+[editable path="world_2D/OutsideCabin"]
+[editable path="world_2D/OutsideCabin/interactables/door_inside"]
+[editable path="world_2D/OutsideCabin/interactables/door_outside"]
 [editable path="world_ui/Fishing"]
 [editable path="world_ui/Bucket"]

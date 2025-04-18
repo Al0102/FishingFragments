@@ -3,6 +3,10 @@ extends Node
 var portals = {
 	"door_inside":{
 		"level_to": "Inside"},
+	"door_outside_cabin":{
+		"level_to": "OutsideCabin"},
+	"ladder_cabin":{
+		"level_to":"OutsideCabin"},
 	"door_outside":{
 		"level_to": "Outside"},
 	"player_spawn":{

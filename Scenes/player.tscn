@@ -92,7 +92,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8m7o"]
-size = Vector2(13, 32)
+size = Vector2(18, 32)
 
 [sub_resource type="Animation" id="Animation_nx24k"]
 length = 0.001
@@ -193,7 +193,6 @@ sprite_frames = SubResource("SpriteFrames_uvve7")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_q8m7o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

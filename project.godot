@@ -111,6 +111,10 @@ cancel={
 
 2d_physics/layer_3="World bounds"
 
+[physics]
+
+2d/default_gravity=900.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

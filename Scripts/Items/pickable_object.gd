@@ -23,7 +23,7 @@ func _ready():
 	add_to_group("pickable")
 	input_event.connect(_on_input_event)
 	held = false
-	
+
 func _on_input_event(viewport, event, shape_idx):
 	print("inputevent")
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -34,14 +34,14 @@ func _on_input_event(viewport, event, shape_idx):
 func _physics_process(delta: float) -> void:
 	if held:
 		var canvas = get_canvas_transform()
-		var topleft = -canvas.origin / canvas.get_scale()
-		var canvas_size = get_viewport_rect().size / canvas.get_scale()
+		var topleft = -canvas.origin / canvas.get_scale()-Vector2(50,50)
+		var canvas_size = get_viewport_rect().size / canvas.get_scale()+Vector2(50,50)
 		var mouse_pos = get_global_mouse_position()
 		
 		mouse_pos.x = clamp(mouse_pos.x,topleft.x,topleft.x+canvas_size.x)
 		mouse_pos.y = clamp(mouse_pos.y,topleft.y,topleft.y+canvas_size.y)
 		var dir_force: Vector2 = (mouse_pos-global_position-linear_velocity)*MOUSE_DRAG_FORCE*delta
-		apply_central_impulse(dir_force)
+		apply_central_force(dir_force)
 
 		
 func pickup():

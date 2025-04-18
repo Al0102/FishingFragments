@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://xhk4jjb6gd0t" path="res://Images/Book/PageFlip.png" id="4_0k742"]
 [ext_resource type="Texture2D" uid="uid://b0lgqcf8xpqqm" path="res://Images/Fishing Minigame/Fish shadows.png" id="4_74wqv"]
 [ext_resource type="Texture2D" uid="uid://bffykbgyqodnx" path="res://Images/Keys.png" id="4_j8u8d"]
-[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Tilesets/icons.tres" id="5_h2jer"]
+[ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="5_h2jer"]
 [ext_resource type="Texture2D" uid="uid://d02ie62gnnucy" path="res://Images/Fishing Minigame/boat_stool_bucket.png" id="6_kgkf4"]
 [ext_resource type="Script" path="res://Scripts/Levels/Book/book_arrow.gd" id="6_rtayu"]
 [ext_resource type="Texture2D" uid="uid://56c5xc5rlby7" path="res://Images/Book/Book.png" id="7_44hmi"]

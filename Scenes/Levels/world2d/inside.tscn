@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cwfk75spsv157"]
+[gd_scene load_steps=12 format=4 uid="uid://cwfk75spsv157"]
 
 [ext_resource type="Script" path="res://Scripts/Utility/Level.gd" id="1_dn1py"]
-[ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Tilesets/Boat.tres" id="2_dbm2w"]
+[ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Resources/Tilesets/Boat.tres" id="2_dbm2w"]
 [ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="3_2qex5"]
 [ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="4_d11k1"]
 [ext_resource type="Texture2D" uid="uid://ct376qpu81hkk" path="res://Images/boattiles.png" id="4_kpto5"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="4_s2lgd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1vmr"]
 size = Vector2(15.7738, 26)
@@ -45,21 +46,23 @@ tile_set = ExtResource("2_dbm2w")
 [node name="interactables" type="Node2D" parent="."]
 position = Vector2(224, 80)
 
-[node name="door_outside" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+[node name="ladder_cabin" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(8, -16)
+script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
-[node name="CollisionShape2D" parent="interactables/door_outside/interactArea2D" index="0"]
+[node name="CollisionShape2D" parent="interactables/ladder_cabin/interactArea2D" index="0"]
 shape = SubResource("RectangleShape2D_o1vmr")
 
-[node name="Sprite2D" type="Sprite2D" parent="interactables/door_outside"]
+[node name="Sprite2D" type="Sprite2D" parent="interactables/ladder_cabin"]
 texture = SubResource("AtlasTexture_gnxsu")
 
-[node name="popupLabel" parent="interactables/door_outside" instance=ExtResource("4_d11k1")]
+[node name="popupLabel" parent="interactables/ladder_cabin" instance=ExtResource("4_d11k1")]
 position = Vector2(9.53674e-07, -20.5)
 
 [node name="door_storage" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-56, -16)
+script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
 [node name="CollisionShape2D" parent="interactables/door_storage/interactArea2D" index="0"]
@@ -74,6 +77,7 @@ position = Vector2(7.86781e-06, -20)
 
 [node name="door_kitchen" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-104, -16)
+script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
 [node name="CollisionShape2D" parent="interactables/door_kitchen/interactArea2D" index="0"]
@@ -88,6 +92,7 @@ position = Vector2(9.53673e-07, -20)
 
 [node name="door_bedroom" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-184, -16)
+script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
 [node name="CollisionShape2D" parent="interactables/door_bedroom/interactArea2D" index="0"]
@@ -128,7 +133,7 @@ position = Vector2(204, 68)
 rotation = 1.5563
 shape = SubResource("WorldBoundaryShape2D_s6t3y")
 
-[editable path="interactables/door_outside"]
+[editable path="interactables/ladder_cabin"]
 [editable path="interactables/door_storage"]
 [editable path="interactables/door_kitchen"]
 [editable path="interactables/door_bedroom"]

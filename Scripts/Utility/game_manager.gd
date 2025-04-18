@@ -20,6 +20,10 @@ func quit_game():
 	get_tree().quit()
 
 
+# MASKS
+const MASK_ITEM_PORTAL = 9
+
+
 # SIGNALS
 # Game signals
 signal SetPlayerPosition

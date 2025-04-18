@@ -4,6 +4,7 @@ class_name Game
 
 @export_group("levels")
 @export var level_Outside: Level
+@export var level_OutsideCabin: Level
 @export var level_Inside: Level
 @export var level_Storage: Level
 @export var level_Fishing: Level
@@ -15,6 +16,7 @@ class_name Game
 
 @onready var levels: Dictionary = {
 	"Outside":level_Outside,
+	"OutsideCabin": level_OutsideCabin,
 	"Inside":level_Inside,
 	"Cupboard": level_Storage,
 	"Fishing": level_Fishing,
@@ -33,7 +35,7 @@ class_name Game
 @onready var worlds = {
 	"world_2D": {
 		"node": world_2D,
-		"levels": ["Outside", "Inside"]},
+		"levels": ["Outside", "Inside", "OutsideCabin"]},
 	"world_ui": {
 		"node": world_ui,
 		"levels": [

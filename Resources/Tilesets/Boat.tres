@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cic51s6hixm0i"]
 
-[ext_resource type="Texture2D" uid="uid://ct376qpu81hkk" path="res://Images/boattiles.png" id="1_nmh2l"]
+[ext_resource type="Texture2D" uid="uid://ct376qpu81hkk" path="res://Images/boattiles.png" id="1_j75in"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0frx"]
-texture = ExtResource("1_nmh2l")
+texture = ExtResource("1_j75in")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, 5, -8, 5, -8, 8)
@@ -124,6 +124,21 @@ texture = ExtResource("1_nmh2l")
 12:1/0 = 0
 13:1/0 = 0
 14:2/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+13:5/0 = 0
+13:4/0 = 0
+13:3/0 = 0
+12:3/0 = 0
+12:4/0 = 0
+12:5/0 = 0
+14:3/0 = 0
+14:4/0 = 0
+12:7/0 = 0
+14:6/0 = 0
+14:5/0 = 0
+15:6/0 = 0
+15:5/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
