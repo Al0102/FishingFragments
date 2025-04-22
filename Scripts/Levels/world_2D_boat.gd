@@ -35,3 +35,5 @@ func _process(delta: float) -> void:
 			interactables.interact_portal(interacting_with[-1].name)
 		elif interacting_with[-1].TYPE == "ui":
 			interactables.interact_ui(interacting_with[-1].name)
+		elif interacting_with[-1].TYPE == "function":
+			interactables.interact_function(interacting_with[-1].name)

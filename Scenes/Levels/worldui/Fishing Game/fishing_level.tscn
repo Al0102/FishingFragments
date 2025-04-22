@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=4 uid="uid://d4evupfppdkg2"]
+[gd_scene load_steps=85 format=4 uid="uid://d4evupfppdkg2"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_level.gd" id="1_k8fli"]
 [ext_resource type="Script" path="res://Scripts/Levels/Fishing Game/fishing_rod.gd" id="2_fmak1"]
@@ -1999,18 +1999,11 @@ sources/2 = SubResource("TileSetAtlasSource_lx1ns")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cndw3"]
 atlas = ExtResource("18_aqrd4")
-region = Rect2(48, 96, 48, 48)
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuqf7"]
 atlas = ExtResource("19_5e1c2")
 region = Rect2(324, 239, 25, 14)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lfcx5"]
-load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qk7q6"]
-atlas = SubResource("CompressedTexture2D_lfcx5")
-region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j7qh4"]
 load_path = "res://.godot/imported/icons.png-e6b7d13954bb7f6922cae0f4e7edb92a.ctex"
@@ -2334,7 +2327,7 @@ idle_out_state = NodePath("../State_Rod_Idle_Out")
 script = ExtResource("8_clv6n")
 reel_state = NodePath("../State_Rod_Reel")
 bobber_sink_state = NodePath("../State_Rod_Bobber_Sink")
-chance_per_second = 0.831
+chance_per_second = 0.06
 
 [node name="State_Rod_Reel" type="Node2D" parent="Rod/RodStateMachine" node_paths=PackedStringArray("idle_in_state", "idle_out_state", "reel_game")]
 script = ExtResource("9_xtpic")
@@ -2552,20 +2545,20 @@ offset_right = 41.0
 offset_bottom = 89.0
 scale = Vector2(1.5, 1.5)
 
-[node name="HintsHide" type="Control" parent="UI/ControlsUI/Hints"]
+[node name="HintsToggle" type="Control" parent="UI/ControlsUI/Hints"]
 layout_mode = 1
 anchors_preset = 0
 offset_left = -1.0
 offset_right = 39.0
 offset_bottom = 40.0
 
-[node name="Icon" type="Control" parent="UI/ControlsUI/Hints/HintsHide"]
+[node name="Icon" type="Control" parent="UI/ControlsUI/Hints/HintsToggle"]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TurnToOFF" type="TextureRect" parent="UI/ControlsUI/Hints/HintsHide/Icon"]
+[node name="Icon" type="TextureRect" parent="UI/ControlsUI/Hints/HintsToggle/Icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2575,44 +2568,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_cndw3")
 expand_mode = 3
 
-[node name="ControlIcon" type="TextureRect" parent="UI/ControlsUI/Hints/HintsHide/Icon"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -11.0
-offset_right = 22.8571
-offset_bottom = 13.0
-grow_horizontal = 0
-grow_vertical = 0
-texture = SubResource("AtlasTexture_tuqf7")
-expand_mode = 3
-
-[node name="HintsShow" type="Control" parent="UI/ControlsUI/Hints"]
-anchors_preset = 0
-offset_left = -1.0
-offset_top = 54.0
-offset_right = 39.0
-offset_bottom = 94.0
-
-[node name="Icon" type="Control" parent="UI/ControlsUI/Hints/HintsShow"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TurnToON" type="TextureRect" parent="UI/ControlsUI/Hints/HintsShow/Icon"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("AtlasTexture_qk7q6")
-expand_mode = 3
-
-[node name="ControlIcon" type="TextureRect" parent="UI/ControlsUI/Hints/HintsShow/Icon"]
+[node name="ControlIcon" type="TextureRect" parent="UI/ControlsUI/Hints/HintsToggle/Icon"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 3

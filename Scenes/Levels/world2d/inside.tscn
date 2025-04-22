@@ -1,8 +1,9 @@
 [gd_scene load_steps=12 format=4 uid="uid://cwfk75spsv157"]
 
-[ext_resource type="Script" path="res://Scripts/Utility/Level.gd" id="1_dn1py"]
+[ext_resource type="Script" path="res://Scripts/Levels/world_2D_boat.gd" id="1_b886o"]
 [ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Resources/Tilesets/Boat.tres" id="2_dbm2w"]
 [ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="3_2qex5"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interacting_boat.gd" id="3_tb4j5"]
 [ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="4_d11k1"]
 [ext_resource type="Texture2D" uid="uid://ct376qpu81hkk" path="res://Images/boattiles.png" id="4_kpto5"]
 [ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="4_s2lgd"]
@@ -22,10 +23,9 @@ region = Rect2(144, 96, 32, 32)
 atlas = ExtResource("4_kpto5")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s6t3y"]
-
-[node name="Inside" type="Node2D"]
-script = ExtResource("1_dn1py")
+[node name="Inside" type="Node2D" node_paths=PackedStringArray("interactables")]
+script = ExtResource("1_b886o")
+interactables = NodePath("interactables")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(224, 80)
@@ -45,6 +45,7 @@ tile_set = ExtResource("2_dbm2w")
 
 [node name="interactables" type="Node2D" parent="."]
 position = Vector2(224, 80)
+script = ExtResource("3_tb4j5")
 
 [node name="ladder_cabin" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(8, -16)
@@ -60,48 +61,48 @@ texture = SubResource("AtlasTexture_gnxsu")
 [node name="popupLabel" parent="interactables/ladder_cabin" instance=ExtResource("4_d11k1")]
 position = Vector2(9.53674e-07, -20.5)
 
-[node name="door_storage" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+[node name="door_inside_storage" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-56, -16)
 script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
-[node name="CollisionShape2D" parent="interactables/door_storage/interactArea2D" index="0"]
+[node name="CollisionShape2D" parent="interactables/door_inside_storage/interactArea2D" index="0"]
 position = Vector2(1.90735e-06, 0)
 shape = SubResource("RectangleShape2D_o1vmr")
 
-[node name="Sprite2D" type="Sprite2D" parent="interactables/door_storage"]
+[node name="Sprite2D" type="Sprite2D" parent="interactables/door_inside_storage"]
 texture = SubResource("AtlasTexture_ro8mw")
 
-[node name="popupLabel" parent="interactables/door_storage" instance=ExtResource("4_d11k1")]
+[node name="popupLabel" parent="interactables/door_inside_storage" instance=ExtResource("4_d11k1")]
 position = Vector2(7.86781e-06, -20)
 
-[node name="door_kitchen" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+[node name="door_inside_kitchen" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-104, -16)
 script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
-[node name="CollisionShape2D" parent="interactables/door_kitchen/interactArea2D" index="0"]
+[node name="CollisionShape2D" parent="interactables/door_inside_kitchen/interactArea2D" index="0"]
 position = Vector2(1.90735e-06, 0)
 shape = SubResource("RectangleShape2D_o1vmr")
 
-[node name="Sprite2D" type="Sprite2D" parent="interactables/door_kitchen"]
+[node name="Sprite2D" type="Sprite2D" parent="interactables/door_inside_kitchen"]
 texture = SubResource("AtlasTexture_ro8mw")
 
-[node name="popupLabel" parent="interactables/door_kitchen" instance=ExtResource("4_d11k1")]
+[node name="popupLabel" parent="interactables/door_inside_kitchen" instance=ExtResource("4_d11k1")]
 position = Vector2(9.53673e-07, -20)
 
-[node name="door_bedroom" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
+[node name="door_inside_bedroom" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("3_2qex5")]
 position = Vector2(-184, -16)
 script = ExtResource("4_s2lgd")
 label = NodePath("popupLabel")
 
-[node name="CollisionShape2D" parent="interactables/door_bedroom/interactArea2D" index="0"]
+[node name="CollisionShape2D" parent="interactables/door_inside_bedroom/interactArea2D" index="0"]
 shape = SubResource("RectangleShape2D_o1vmr")
 
-[node name="Sprite2D" type="Sprite2D" parent="interactables/door_bedroom"]
+[node name="Sprite2D" type="Sprite2D" parent="interactables/door_inside_bedroom"]
 texture = SubResource("AtlasTexture_ro8mw")
 
-[node name="popupLabel" parent="interactables/door_bedroom" instance=ExtResource("4_d11k1")]
+[node name="popupLabel" parent="interactables/door_inside_bedroom" instance=ExtResource("4_d11k1")]
 position = Vector2(-3.8147e-06, -20)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -115,25 +116,7 @@ position = Vector2(136, 48)
 scale = Vector2(17, 6)
 texture = SubResource("AtlasTexture_u3xu1")
 
-[node name="DEMO BLOCKED AREA" type="StaticBody2D" parent="."]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DEMO BLOCKED AREA"]
-offset_left = 160.0
-offset_top = 28.0
-offset_right = 264.0
-offset_bottom = 68.0
-theme_override_colors/default_color = Color(0.768627, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0.239343, 0.105138, 1)
-theme_override_constants/outline_size = 4
-text = "Coming Soon
-"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DEMO BLOCKED AREA"]
-position = Vector2(204, 68)
-rotation = 1.5563
-shape = SubResource("WorldBoundaryShape2D_s6t3y")
-
 [editable path="interactables/ladder_cabin"]
-[editable path="interactables/door_storage"]
-[editable path="interactables/door_kitchen"]
-[editable path="interactables/door_bedroom"]
+[editable path="interactables/door_inside_storage"]
+[editable path="interactables/door_inside_kitchen"]
+[editable path="interactables/door_inside_bedroom"]

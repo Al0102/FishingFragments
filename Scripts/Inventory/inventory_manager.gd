@@ -9,7 +9,9 @@ const SAVE_DIR = "user://inventory_saves/"
 
 var inventory_files: Dictionary = {
 	"player_bag": "player_bag.tres",
-	"bucket": "bucket.tres"
+	"bucket": "bucket.tres",
+	"aquarium": "aquarium.tres",
+	"chest": "chest.tres",
 }
 
 var inventories_cache: Dictionary = {}

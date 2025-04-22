@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bso0ki0xnbnyp"]
 
-[ext_resource type="Script" path="res://Scripts/Items/item_object.gd" id="1_rg03f"]
+[ext_resource type="Script" path="res://Scripts/Items/Object/item_object.gd" id="1_rg03f"]
 [ext_resource type="Script" path="res://Scripts/Items/pickable_object_data.gd" id="2_skn0f"]
 [ext_resource type="Script" path="res://addons/vector2_array_resource_editor/vector2_array_resource.gd" id="3_23mkv"]
 [ext_resource type="Script" path="res://Scripts/Items/Fish/fish_data.gd" id="4_3kp4i"]

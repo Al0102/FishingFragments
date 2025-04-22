@@ -1604,9 +1604,9 @@ region = Rect2(409, 171, 13, 14)
 [node name="Bag" node_paths=PackedStringArray("item_portals") instance=ExtResource("1_kbbdk")]
 script = ExtResource("2_g6lat")
 inventory_name = "player_bag"
+item_portals = [NodePath("ItemPortal")]
 spawn_x_range = Vector2(320, 800)
 spawn_y_range = Vector2(128, 548)
-item_portals = [NodePath("ItemPortal")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 

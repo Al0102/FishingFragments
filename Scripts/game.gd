@@ -13,6 +13,10 @@ class_name Game
 @export var level_PlayerBag: Level
 @export var level_Book: Level
 @export var level_DeleteSave: Level
+@export var level_Aquarium: Level
+@export var level_Bedroom: Level
+@export var level_Chest: Level
+@export var level_StorageRoom: Level
 
 @onready var levels: Dictionary = {
 	"Outside":level_Outside,
@@ -24,7 +28,11 @@ class_name Game
 	"Bucket": level_Bucket,
 	"PlayerBag": level_PlayerBag,
 	"Book": level_Book,
-	"DeleteSave": level_DeleteSave,}
+	"DeleteSave": level_DeleteSave,
+	"Aquarium": level_Aquarium,
+	"Bedroom": level_Bedroom,
+	"Chest": level_Chest,
+	"StorageRoom": level_StorageRoom}
 
 
 @export_group("worlds")
@@ -35,7 +43,7 @@ class_name Game
 @onready var worlds = {
 	"world_2D": {
 		"node": world_2D,
-		"levels": ["Outside", "Inside", "OutsideCabin"]},
+		"levels": ["Outside", "Inside", "OutsideCabin","Bedroom", "StorageRoom"]},
 	"world_ui": {
 		"node": world_ui,
 		"levels": [
@@ -44,6 +52,8 @@ class_name Game
 			"Bucket",
 			"PlayerBag",
 			"Book",
+			"Aquarium",
+			"Chest",
 		]},
 	"world_menu": {
 		"node": world_menu,
@@ -86,6 +96,8 @@ func _ready() -> void:
 	GameManager.connect("ChangeWorld", _on_change_world)
 	GameManager.connect("SetPlayerPosition", _on_set_player_position)
 	GameManager.connect("ReloadGame", _on_reload_game)
+	
+	GameManager.connect("day_end", _on_day_end)
 	
 	level_StartScreen.game_start.connect(reset_to_start)
 	
@@ -212,3 +224,15 @@ func _on_popup_close(index: int=-1) -> void:
 # sets global pos of player (e.g. for portals/switching levels)
 func _on_set_player_position(position: Vector2) -> void:
 	player.global_position = position
+
+func pause_world(pause_on: bool):
+	var world
+	if popups.is_empty():
+		world = worlds[current_world]["node"]
+	else:
+		world = popups[-1]["world"]
+	print(pause_on)
+	world.process_mode = PROCESS_MODE_DISABLED if pause_on else PROCESS_MODE_PAUSABLE
+		
+func _on_day_end():
+	$AnimationPlayer.play("sleep")

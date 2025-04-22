@@ -39,7 +39,7 @@ func _physics_process(delta):
 func state_update():
 	match state:
 		State.IDLE:
-			if !anim_player.is_playing():
+			if anim_player.is_playing():
 				anim_player.play("idle")
 		State.WALK:
 			anim_player.play("walk")

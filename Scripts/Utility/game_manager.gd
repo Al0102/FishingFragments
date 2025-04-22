@@ -36,4 +36,5 @@ signal ReloadGame
 
 # Interactable signals
 signal can_interact_with_me
-signal cannot_interact_with_me 
+signal cannot_interact_with_me
+signal day_end

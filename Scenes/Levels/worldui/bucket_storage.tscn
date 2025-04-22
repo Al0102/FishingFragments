@@ -499,17 +499,17 @@ sources/0 = SubResource("TileSetAtlasSource_qvysv")
 atlas = ExtResource("8_hmsvx")
 region = Rect2(96, 0, 48, 48)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lywas"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wd2rr"]
 load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfolb"]
-atlas = SubResource("CompressedTexture2D_lywas")
+atlas = SubResource("CompressedTexture2D_wd2rr")
 region = Rect2(392, 188, 13, 14)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pfg2d"]
 load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0yud1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2npj"]
 texture = SubResource("CompressedTexture2D_pfg2d")
 separation = Vector2i(1, 1)
 0:0/0 = 0
@@ -1413,7 +1413,7 @@ separation = Vector2i(1, 1)
 34:24/0 = 0
 35:24/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3hp1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1o5v"]
 texture = ExtResource("9_cwxx0")
 texture_region_size = Vector2i(48, 32)
 0:0/0 = 0
@@ -1423,7 +1423,7 @@ texture_region_size = Vector2i(48, 32)
 1:1/0 = 0
 2:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we8qm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tm862"]
 texture = ExtResource("4_j3n13")
 0:0/0 = 0
 1:0/0 = 0
@@ -1570,11 +1570,11 @@ texture = ExtResource("4_j3n13")
 5:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fkh64"]
-sources/1 = SubResource("TileSetAtlasSource_0yud1")
-sources/2 = SubResource("TileSetAtlasSource_f3hp1")
-sources/3 = SubResource("TileSetAtlasSource_we8qm")
+sources/1 = SubResource("TileSetAtlasSource_k2npj")
+sources/2 = SubResource("TileSetAtlasSource_y1o5v")
+sources/3 = SubResource("TileSetAtlasSource_tm862")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8236f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0s8xc"]
 texture = ExtResource("4_j3n13")
 0:0/0 = 0
 1:0/0 = 0
@@ -1721,25 +1721,25 @@ texture = ExtResource("4_j3n13")
 5:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_400bo"]
-sources/0 = SubResource("TileSetAtlasSource_8236f")
+sources/0 = SubResource("TileSetAtlasSource_0s8xc")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po56a"]
 atlas = ExtResource("4_j3n13")
 region = Rect2(48, 288, 48, 48)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioo6y"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cs6sy"]
 load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4go0"]
-atlas = SubResource("CompressedTexture2D_ioo6y")
+atlas = SubResource("CompressedTexture2D_cs6sy")
 region = Rect2(409, 171, 13, 14)
 
 [node name="Bucket" node_paths=PackedStringArray("item_portals") instance=ExtResource("1_nycuj")]
 script = ExtResource("2_p0aky")
 inventory_name = "bucket"
+item_portals = [NodePath("ItemPortals/ToBagPortal"), NodePath("ItemPortals/ToOceanPortal")]
 spawn_x_range = Vector2(192, 960)
 spawn_y_range = Vector2(192, 320)
-item_portals = [NodePath("ItemPortals/ToBagPortal"), NodePath("ItemPortals/ToOceanPortal")]
 
 [node name="Bucket collision" type="StaticBody2D" parent="." index="2"]
 position = Vector2(576, 324)

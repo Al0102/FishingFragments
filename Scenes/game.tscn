@@ -1,11 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cedftdbpphn"]
+[gd_scene load_steps=42 format=3 uid="uid://cedftdbpphn"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_s1xxa"]
 [ext_resource type="PackedScene" uid="uid://bxtef406sl7a3" path="res://Scenes/player.tscn" id="1_xlduq"]
 [ext_resource type="PackedScene" uid="uid://cwfk75spsv157" path="res://Scenes/Levels/world2d/inside.tscn" id="3_1y6ot"]
-[ext_resource type="Script" path="res://Scripts/Levels/world_2D_boat.gd" id="3_hsvns"]
-[ext_resource type="Script" path="res://Scripts/Interactables/interacting_boat.gd" id="6_hbabu"]
 [ext_resource type="PackedScene" uid="uid://gpgtoihdo606" path="res://Scenes/Levels/world2d/outside_cabin.tscn" id="6_q885d"]
+[ext_resource type="PackedScene" uid="uid://0xtye61snvgw" path="res://Scenes/Levels/world2d/bedroom.tscn" id="7_7kgpq"]
+[ext_resource type="PackedScene" uid="uid://cfbmqa7obgsfi" path="res://Scenes/Levels/world2d/storage_room.tscn" id="7_mnoi6"]
 [ext_resource type="PackedScene" uid="uid://bbo1317tc3udw" path="res://Scenes/Levels/world2d/outside.tscn" id="7_o1mud"]
 [ext_resource type="Script" path="res://Scripts/Interactables/portal_destination.gd" id="9_atyfd"]
 [ext_resource type="PackedScene" uid="uid://h5bny70g3ojw" path="res://Scenes/Interactables/portal_destination.tscn" id="9_eu83q"]
@@ -19,9 +19,13 @@
 [ext_resource type="Texture2D" uid="uid://3f0838yltg4v" path="res://Resources/Tilesets/icons.tres" id="12_u0m8b"]
 [ext_resource type="Texture2D" uid="uid://dd77t3j3k76ch" path="res://Resources/Atlas_Resources/default.tres" id="13_h5c4y"]
 [ext_resource type="PackedScene" uid="uid://bdk6ormkapg46" path="res://Scenes/Levels/worldui/book_screen.tscn" id="18_ia83x"]
+[ext_resource type="PackedScene" uid="uid://dksjfm3ekut56" path="res://Scenes/Levels/worldui/aquarium_storage.tscn" id="19_fofjh"]
 [ext_resource type="PackedScene" uid="uid://djeq83vw3kc8g" path="res://Scenes/Levels/worldmenu/delete_save_screen.tscn" id="20_ujism"]
+[ext_resource type="PackedScene" uid="uid://b8i77w6d2sxbb" path="res://Scenes/Levels/worldui/chest_storage.tscn" id="21_hbglt"]
 [ext_resource type="Script" path="res://Scripts/Utility/pause_manager.gd" id="21_j5ae3"]
 [ext_resource type="PackedScene" uid="uid://fcscchr5d0mk" path="res://Scenes/Levels/worldmenu/pause_screen.tscn" id="22_aatjb"]
+[ext_resource type="Texture2D" uid="uid://dcrpikvuubghh" path="res://Images/SEA BACKGROUND/Back BG.png" id="24_5r1ny"]
+[ext_resource type="Texture2D" uid="uid://cucdlt4wmjeju" path="res://Images/SEA BACKGROUND/Sea Decor.png" id="25_wmpmp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr6w2"]
 atlas = ExtResource("11_xuw1s")
@@ -1113,7 +1117,281 @@ sources/1 = SubResource("TileSetAtlasSource_n0ed1")
 sources/2 = SubResource("TileSetAtlasSource_sctkp")
 sources/3 = SubResource("TileSetAtlasSource_jlkvq")
 
-[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_OutsideCabin", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "level_Book", "level_DeleteSave", "world_2D", "world_ui", "world_menu", "player")]
+[sub_resource type="Animation" id="Animation_bs7b2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transitions/Sleep/Blue:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transitions/Sleep/Blue:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transitions/Sleep/Blue:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transitions/Sleep/Blue:anchor_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transitions/Sleep/Moon:anchor_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Transitions/Sleep/Moon:anchor_right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Transitions/Sleep/Moon:anchor_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Transitions/Sleep/Moon:anchor_top")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Transitions/Sleep/Moon:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Transitions/Sleep:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xkt1d"]
+resource_name = "sleep"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transitions/Sleep/Blue:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transitions/Sleep/Blue:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transitions/Sleep/Blue:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(20, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transitions/Sleep/Blue:anchor_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transitions/Sleep/Moon:anchor_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Transitions/Sleep/Moon:anchor_right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.6]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Transitions/Sleep/Moon:anchor_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Transitions/Sleep/Moon:anchor_top")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Transitions/Sleep/Moon:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.433333, 1.5, 1.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 0.5, 0.2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Transitions/Sleep:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"pause_world"
+}, {
+"args": [false],
+"method": &"pause_world"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjbhl"]
+_data = {
+"RESET": SubResource("Animation_bs7b2"),
+"sleep": SubResource("Animation_xkt1d")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4e2m"]
+atlas = ExtResource("25_wmpmp")
+region = Rect2(0, 128, 48, 48)
+
+[node name="Game" type="Node" node_paths=PackedStringArray("level_Outside", "level_OutsideCabin", "level_Inside", "level_Storage", "level_Fishing", "level_StartScreen", "level_Bucket", "level_PlayerBag", "level_Book", "level_DeleteSave", "level_Aquarium", "level_Bedroom", "level_Chest", "level_StorageRoom", "world_2D", "world_ui", "world_menu", "player")]
 process_mode = 3
 script = ExtResource("1_s1xxa")
 level_Outside = NodePath("world_2D/Outside")
@@ -1126,6 +1404,10 @@ level_Bucket = NodePath("world_ui/Bucket")
 level_PlayerBag = NodePath("world_ui/PlayerBag")
 level_Book = NodePath("world_ui/Book")
 level_DeleteSave = NodePath("world_menu/DeleteSave")
+level_Aquarium = NodePath("world_ui/Aquarium")
+level_Bedroom = NodePath("world_2D/Bedroom")
+level_Chest = NodePath("world_ui/Chest")
+level_StorageRoom = NodePath("world_2D/StorageRoom")
 world_2D = NodePath("world_2D")
 world_ui = NodePath("world_ui")
 world_menu = NodePath("world_menu")
@@ -1134,20 +1416,24 @@ player = NodePath("world_2D/Player")
 [node name="world_2D" type="Node" parent="."]
 process_mode = 1
 
-[node name="Inside" parent="world_2D" node_paths=PackedStringArray("interactables", "camera") instance=ExtResource("3_1y6ot")]
+[node name="Inside" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("3_1y6ot")]
 position = Vector2(-440, -64)
-script = ExtResource("3_hsvns")
-interactables = NodePath("interactables")
 camera = NodePath("../Player/Camera2D")
-
-[node name="interactables" parent="world_2D/Inside" index="1"]
-script = ExtResource("6_hbabu")
 
 [node name="ladder_cabin" parent="world_2D/Inside/interactables" index="0" node_paths=PackedStringArray("destination")]
 destination = NodePath("../../../Portals/ladder_cabin")
 
+[node name="door_inside_storage" parent="world_2D/Inside/interactables" index="1" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_inside_storage")
+
+[node name="door_inside_kitchen" parent="world_2D/Inside/interactables" index="2" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_outside")
+
+[node name="door_inside_bedroom" parent="world_2D/Inside/interactables" index="3" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_bedroom")
+
 [node name="Parallax2D" parent="world_2D/Inside" index="2"]
-scroll_offset = Vector2(696, 132)
+scroll_offset = Vector2(-1445, 596)
 repeat_times = 1
 
 [node name="Sprite2D" parent="world_2D/Inside/Parallax2D" index="0"]
@@ -1169,6 +1455,20 @@ camera = NodePath("../Player/Camera2D")
 
 [node name="door_inside" parent="world_2D/OutsideCabin/interactables" index="0" node_paths=PackedStringArray("destination")]
 destination = NodePath("../../../Portals/door_inside")
+
+[node name="Bedroom" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("7_7kgpq")]
+position = Vector2(-443, -162)
+camera = NodePath("../Player/Camera2D")
+
+[node name="door_bedroom" parent="world_2D/Bedroom/interactables" index="2" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_inside_bedroom")
+
+[node name="StorageRoom" parent="world_2D" node_paths=PackedStringArray("camera") instance=ExtResource("7_mnoi6")]
+position = Vector2(-444, -244)
+camera = NodePath("../Player/Camera2D")
+
+[node name="door_storage_room" parent="world_2D/StorageRoom/interactables" index="0" node_paths=PackedStringArray("destination")]
+destination = NodePath("../../../Portals/door_storage_room")
 
 [node name="Player" parent="world_2D" instance=ExtResource("1_xlduq")]
 z_index = 2
@@ -1195,6 +1495,18 @@ position = Vector2(0, -161)
 [node name="player_spawn" type="Node2D" parent="world_2D/Portals" groups=["portals"]]
 position = Vector2(-104, -11)
 script = ExtResource("9_atyfd")
+
+[node name="door_inside_bedroom" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(-379, -97)
+
+[node name="door_bedroom" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(-400, 0)
+
+[node name="door_storage_room" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(-272, 0)
+
+[node name="door_inside_storage" parent="world_2D/Portals" instance=ExtResource("9_eu83q")]
+position = Vector2(-404, -180)
 
 [node name="UI" type="CanvasLayer" parent="world_2D"]
 script = ExtResource("10_crhh4")
@@ -1351,6 +1663,10 @@ position = Vector2(-1683, -652)
 
 [node name="Book" parent="world_ui" instance=ExtResource("18_ia83x")]
 
+[node name="Aquarium" parent="world_ui" instance=ExtResource("19_fofjh")]
+
+[node name="Chest" parent="world_ui" instance=ExtResource("21_hbglt")]
+
 [node name="world_menu" type="Node" parent="."]
 process_mode = 1
 
@@ -1368,11 +1684,50 @@ pause_screen = NodePath("PauseScreen")
 
 [node name="PauseScreen" parent="Pause" instance=ExtResource("22_aatjb")]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jjbhl")
+}
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Sleep" type="Control" parent="Transitions"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blue" type="TextureRect" parent="Transitions/Sleep"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_top = 0.000579834
+offset_bottom = 0.000579834
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_5r1ny")
+expand_mode = 1
+
+[node name="Moon" type="TextureRect" parent="Transitions/Sleep"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_d4e2m")
+stretch_mode = 5
+
 [editable path="world_2D/Inside"]
 [editable path="world_2D/Inside/interactables/ladder_cabin"]
-[editable path="world_2D/Inside/interactables/door_storage"]
-[editable path="world_2D/Inside/interactables/door_kitchen"]
-[editable path="world_2D/Inside/interactables/door_bedroom"]
+[editable path="world_2D/Inside/interactables/door_inside_storage"]
+[editable path="world_2D/Inside/interactables/door_inside_kitchen"]
+[editable path="world_2D/Inside/interactables/door_inside_bedroom"]
 [editable path="world_2D/Outside"]
 [editable path="world_2D/Outside/interactables/door_outside_cabin"]
 [editable path="world_2D/Outside/interactables/game_fishing"]
@@ -1380,5 +1735,12 @@ pause_screen = NodePath("PauseScreen")
 [editable path="world_2D/OutsideCabin"]
 [editable path="world_2D/OutsideCabin/interactables/door_inside"]
 [editable path="world_2D/OutsideCabin/interactables/door_outside"]
+[editable path="world_2D/Bedroom"]
+[editable path="world_2D/Bedroom/interactables/bed"]
+[editable path="world_2D/Bedroom/interactables/aquarium_storage"]
+[editable path="world_2D/Bedroom/interactables/door_bedroom"]
+[editable path="world_2D/StorageRoom"]
+[editable path="world_2D/StorageRoom/interactables/door_storage_room"]
+[editable path="world_2D/StorageRoom/interactables/chest"]
 [editable path="world_ui/Fishing"]
 [editable path="world_ui/Bucket"]

@@ -51,11 +51,10 @@ func clear_and_get() -> Array[ItemStack]:
 
 func update():
 	if len(items) > 0:
+		items_dict.clear()
 		for i in range(len(items)):
 			print(items[i].quantity)
 			items_dict[items[i].item.id] = i
-	else:
-		items_dict.clear()
 	print("vslue: ",items)
 
 # removes empty stacks

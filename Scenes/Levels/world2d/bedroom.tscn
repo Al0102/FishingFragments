@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=4 uid="uid://0xtye61snvgw"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/world_2D_boat.gd" id="1_k70x8"]
+[ext_resource type="TileSet" uid="uid://cic51s6hixm0i" path="res://Resources/Tilesets/Boat.tres" id="2_4y0cm"]
+[ext_resource type="Texture2D" uid="uid://ct376qpu81hkk" path="res://Images/boattiles.png" id="3_nklfk"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interacting_boat.gd" id="4_ni147"]
+[ext_resource type="PackedScene" uid="uid://elcaxoggdr0h" path="res://Scenes/Interactables/interact_area.tscn" id="5_8i21o"]
+[ext_resource type="PackedScene" uid="uid://culxx5pu21pj6" path="res://Scenes/Utility/control_E_label.tscn" id="6_dkfdl"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interact_ui.gd" id="7_o5hkt"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interact_portal.gd" id="8_kq75e"]
+[ext_resource type="Script" path="res://Scripts/Interactables/interact_function.gd" id="8_tccba"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgpqi"]
+atlas = ExtResource("3_nklfk")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g54ow"]
+size = Vector2(23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1tm4"]
+atlas = ExtResource("3_nklfk")
+region = Rect2(192, 80, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f2sj"]
+atlas = ExtResource("3_nklfk")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3ig6"]
+size = Vector2(30, 14)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ydqhe"]
+load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdmvr"]
+size = Vector2(5, 30)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bntjl"]
+load_path = "res://.godot/imported/Keys.png-fdf0ca6546bddbe8e6a9f729f105c633.ctex"
+
+[node name="Bedroom" type="Node2D" node_paths=PackedStringArray("interactables")]
+script = ExtResource("1_k70x8")
+interactables = NodePath("interactables")
+
+[node name="BG Tilemaps" type="Node2D" parent="."]
+position = Vector2(224, 80)
+
+[node name="Background" type="TileMapLayer" parent="BG Tilemaps"]
+tile_map_data = PackedByteArray("AAD6//3/AAAJAAAAAAD5//3/AAAHAAAAAAD2//3/AAAHAAAAAAD3//7/AAAHAAAAAAD5//7/AAAHAAAAAAD7//3/AAAJAAAAAAD3//3/AAAJAAAAAAD4//3/AAAHAAAAAAD4//7/AAAJAAAAAAD2//7/AAAHAAAAAADz//3/AAAGAAAAAAD1//7/AAAHAAAAAAD1//3/AAAJAAAAAAD0//3/AAAJAAAAAADz////AAAGAAIAAAD0////AAAGAAIAAAD1////AAAGAAIAAAD2////AAAGAAIAAAD3////AAAGAAIAAAD4////AAAGAAIAAAD5////AAAGAAIAAAD6////AAAGAAIAAAD7////AAAGAAIAAAD6//7/AAAHAAAAAAD7//7/AAAHAAAAAAD0//7/AAAHAAAAAADz//7/AAAHAAAAAAA=")
+tile_set = ExtResource("2_4y0cm")
+
+[node name="Decoration" type="TileMapLayer" parent="BG Tilemaps"]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("AAD7////AAAHAAcAAAD6////AAAFAAcAAAD6//7/AAAOAAcAAAD7//7/AAAPAAcAAAD4//7/AAAJAAEAAAD3//7/AAAJAAEAAAD5//7/AAAJAAEAAAA=")
+tile_set = ExtResource("2_4y0cm")
+
+[node name="Walls" type="TileMapLayer" parent="BG Tilemaps"]
+tile_map_data = PackedByteArray("AADy//3/AAAAAAEAAADy//7/AAAAAAEAAADy////AAAAAAEAAADy/wAAAAAAAAIAAADz/wAAAAABAAIAAAD0/wAAAAABAAIAAAD1/wAAAAABAAIAAAD2/wAAAAABAAIAAAD3/wAAAAABAAIAAAD4/wAAAAABAAIAAAD5/wAAAAABAAIAAAD6/wAAAAABAAIAAAD7/wAAAAABAAIAAAD1//7/AAAJAAYAAAD1////AAAJAAcAAAD2//7/AAAKAAYAAAD2////AAAKAAcAAAD8/wAAAAACAAIAAAD8////AAACAAEAAAD8//7/AAACAAEAAAD8//3/AAACAAEAAAD8//z/AAACAAAAAADy//z/AAAAAAAAAAD7//z/AAABAAAAAAD5//z/AAABAAAAAAD6//z/AAABAAAAAAD3//z/AAABAAAAAAD4//z/AAABAAAAAAD1//z/AAABAAAAAAD2//z/AAABAAAAAADz//z/AAABAAAAAAD0//z/AAABAAAAAAA=")
+tile_set = ExtResource("2_4y0cm")
+
+[node name="Black" type="Parallax2D" parent="."]
+z_index = -4096
+repeat_size = Vector2(16, 16)
+repeat_times = 8
+follow_viewport = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Black"]
+position = Vector2(136, 48)
+scale = Vector2(17, 6)
+texture = SubResource("AtlasTexture_rgpqi")
+
+[node name="interactables" type="Node2D" parent="."]
+position = Vector2(224, 80)
+script = ExtResource("4_ni147")
+
+[node name="bed" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("5_8i21o")]
+position = Vector2(-208, -20)
+script = ExtResource("8_tccba")
+label = NodePath("popupLabel")
+
+[node name="interactArea2D" parent="interactables/bed" index="0"]
+position = Vector2(12, 8)
+
+[node name="CollisionShape2D" parent="interactables/bed/interactArea2D" index="0"]
+shape = SubResource("RectangleShape2D_g54ow")
+
+[node name="Bed sprite" type="Node2D" parent="interactables/bed"]
+position = Vector2(0, -12)
+
+[node name="mattress" type="Sprite2D" parent="interactables/bed/Bed sprite"]
+position = Vector2(16, 16)
+texture = SubResource("AtlasTexture_l1tm4")
+
+[node name="pillows" type="Sprite2D" parent="interactables/bed/Bed sprite"]
+position = Vector2(10, 13)
+texture = SubResource("AtlasTexture_5f2sj")
+
+[node name="pillows2" type="Sprite2D" parent="interactables/bed/Bed sprite"]
+position = Vector2(21, 13)
+texture = SubResource("AtlasTexture_5f2sj")
+flip_h = true
+
+[node name="popupLabel" parent="interactables/bed" instance=ExtResource("6_dkfdl")]
+position = Vector2(16, -9)
+
+[node name="aquarium_storage" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("5_8i21o")]
+position = Vector2(-86, -21)
+script = ExtResource("7_o5hkt")
+label = NodePath("popupLabel")
+
+[node name="CollisionShape2D" parent="interactables/aquarium_storage/interactArea2D" index="0"]
+position = Vector2(5, -3)
+shape = SubResource("RectangleShape2D_p3ig6")
+
+[node name="popupLabel" parent="interactables/aquarium_storage" instance=ExtResource("6_dkfdl")]
+position = Vector2(5, -15)
+texture = SubResource("CompressedTexture2D_ydqhe")
+
+[node name="door_bedroom" parent="interactables" node_paths=PackedStringArray("label") instance=ExtResource("5_8i21o")]
+position = Vector2(-156, -15)
+script = ExtResource("8_kq75e")
+label = NodePath("popupLabel")
+
+[node name="interactArea2D" parent="interactables/door_bedroom" index="0"]
+position = Vector2(-4, 0)
+
+[node name="CollisionShape2D" parent="interactables/door_bedroom/interactArea2D" index="0"]
+position = Vector2(3.8147e-06, 4.76837e-07)
+shape = SubResource("RectangleShape2D_fdmvr")
+
+[node name="popupLabel" parent="interactables/door_bedroom" instance=ExtResource("6_dkfdl")]
+position = Vector2(-4, -20)
+texture = SubResource("CompressedTexture2D_bntjl")
+
+[editable path="interactables/bed"]
+[editable path="interactables/aquarium_storage"]
+[editable path="interactables/door_bedroom"]

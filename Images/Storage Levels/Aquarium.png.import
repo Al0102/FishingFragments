@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4oqlppxjb1oo"
-path="res://.godot/imported/IMG_6429.PNG-1238a8f043b80b1bff0586ba937d591d.ctex"
+uid="uid://o1a43rqusiaq"
+path="res://.godot/imported/Aquarium.png-a0a173aa995dea02a007e29924b1735a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/IMG_6429.PNG"
-dest_files=["res://.godot/imported/IMG_6429.PNG-1238a8f043b80b1bff0586ba937d591d.ctex"]
+source_file="res://Images/Storage Levels/Aquarium.png"
+dest_files=["res://.godot/imported/Aquarium.png-a0a173aa995dea02a007e29924b1735a.ctex"]
 
 [params]
 

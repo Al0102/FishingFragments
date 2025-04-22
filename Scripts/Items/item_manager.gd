@@ -21,11 +21,18 @@ var fish_resources: Dictionary = {
 	"grouper": "grouper_fish.tres"
 } # String: Resource
 
+var OBJECT_TYPES: Dictionary = {
+	"FISH": FishObject
+}
 var pickable_object = preload("res://Scenes/pickable_object.tscn")
 
-
 func new_item(data: Item):
-	var item = ItemObject.new()
+	var item: ItemObject
+	if data.get("TYPE"):
+		#item = OBJECT_TYPES[data.TYPE].new()
+		item = FishObject.new()
+	else: 
+		item = ItemObject.new()
 	item.data = data
 	item.sprite.texture = data.texture
 	item.collision_shape.polygon = data.pickable_object.shape_points.polygon

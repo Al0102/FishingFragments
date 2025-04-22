@@ -3,12 +3,13 @@ class_name StorageLevel
 
 @export var inventory: Inventory = null
 @export var inventory_name: String = ""
+@export var controls_ui: Control
+@export var item_portals: Array[ItemPortal]
 
 @export_group("spawn area")
 @export var spawn_x_range: Vector2
 @export var spawn_y_range: Vector2
 
-@export var item_portals: Array[ItemPortal]
 
 @export var spawned_objects: Array[PickableObject]
 var is_spawned = false
@@ -21,6 +22,9 @@ func _ready():
 	inventory = InventoryManager._load(inventory_name)
 	InventoryManager.item_added.connect(_on_item_added)
 	
+	if controls_ui:
+		controls_ui.UI_hints_on.connect(_on_hints_on)
+		controls_ui.UI_hints_off.connect(_on_hints_off)
 	for portal in item_portals:
 		portal.item_teleported.connect(_on_item_teleported)
 	for item_stack in inventory.items:
@@ -67,6 +71,14 @@ func _on_item_added(_inventory_name, item: Item):
 	if inventory_name == _inventory_name:
 		spawn_item(item)
 
+func _on_hints_on():
+	for portal in item_portals:
+		print("POR",portal)
+		portal.monitoring = true
+func _on_hints_off():
+	for portal in item_portals:
+		print("PR",portal)
+		portal.monitoring = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cancel"):
